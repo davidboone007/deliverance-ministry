@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contact us or sign up · Beyond Born Again</title>
-<meta name="description" content="Ask a question, request a session, or learn to minister. Always free.">
+<meta name="description" content="Ask a question or request a session. Always free.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -21,14 +21,14 @@
 
 <section class="page-hero"><div class="wrap">
 <h1>Contact us or sign up</h1>
-<p>Ask a question, request a session, or learn to minister. Someone will reach out to you personally. It is always free.</p>
+<p>Ask a question or request a session. Someone will reach out to you personally. It is always free.</p>
 </div></section>
 
 <section><div class="wrap narrow">
 <form class="signup" action="https://api.web3forms.com/submit" method="POST">
 <!-- Web3Forms delivers each submission to David's email. Key from David, 2026-10-05. -->
 <input type="hidden" name="access_key" value="d9fb3c2a-e827-4b5b-87e1-b6060e60867f">
-<input type="hidden" name="subject" value="New message from the ministry website">
+<input type="hidden" name="subject" id="subject" value="Website message">
 <input type="hidden" name="from_name" value="Beyond Born Again website">
 <input type="hidden" name="redirect" value="https://healing.place/thanks.html">
 <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
@@ -45,8 +45,6 @@
 
 <fieldset><legend>I’m interested in</legend>
 <label class="choice"><input type="checkbox" name="interest" value="Receiving deliverance ministry"> Receiving deliverance ministry</label>
-<label class="choice"><input type="checkbox" name="interest" value="Learning to minister"> Learning to minister to others</label>
-<label class="choice"><input type="checkbox" name="interest" value="Partnering with my church"> Partnering with my church</label>
 <label class="choice"><input type="checkbox" name="interest" value="Prayer or a question"> Prayer, or just a question</label>
 </fieldset>
 
@@ -57,6 +55,14 @@
 
 <div><button class="btn" type="submit">Send</button></div>
 </form>
+<script>
+// Give every message its own subject (name + date and time) so Gmail doesn't stack them in one thread.
+document.querySelector('form.signup').addEventListener('submit', function () {
+  var name = (document.getElementById('name').value || 'Someone').trim();
+  var when = new Date().toLocaleString('en-US', {month:'short', day:'numeric', year:'numeric', hour:'numeric', minute:'2-digit'});
+  document.getElementById('subject').value = 'Website message from ' + name + ' (' + when + ')';
+});
+</script>
 </div></section>
 
 </main>
