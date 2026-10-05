@@ -114,7 +114,7 @@ footer p{margin:.3rem 0}
  figure.path svg.wide,figure.path>svg{display:none}
  .path-m{display:flex;flex-direction:column;align-items:center;font-family:var(--sans)}
  .path-m .pt{color:#fff;font-weight:700;border-radius:14px;padding:10px 20px;text-align:center;font-size:1.05rem;display:flex;align-items:center;gap:12px}
- .path-m .pt svg{width:58px;height:40px;flex:none}
+ .path-m .pt svg{width:52px;height:50px;flex:none}
  .path-m .pt small{display:block;font-weight:400;font-size:.78rem;opacity:.9}
  .path-m .start{background:var(--navy)} .path-m .end{background:var(--sage)}
  .path-m .lane{border-left:4px dashed var(--gold);margin:8px 0;padding:8px 0 8px 18px;display:flex;flex-direction:column;gap:6px;align-self:center}
