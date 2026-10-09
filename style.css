@@ -139,3 +139,10 @@ figure.path svg .t{font-family:var(--sans)}
  .hero.split .hero-img img{border-radius:0;box-shadow:none}
  .hero.split .hero-text{padding:0 20px}
 }
+
+/* Three stacked verses under the home title */
+.hero .verses{margin:0 0 1.6rem;border-left:3px solid var(--gold);padding-left:16px}
+.hero .verses p{font-style:italic;font-size:1.02rem;line-height:1.5;color:#eef1fb;margin:0 0 .7rem}
+.hero .verses p:last-child{margin-bottom:0}
+.hero .verses .ref{color:#c4cbe6}
+@media (max-width:820px){.hero.split .verses{text-align:left;margin-left:4px}}
