@@ -1,7 +1,12 @@
 # Builds the delmin.org revamp draft into the healing.place repo at /delmin.org-draft/.
 # Edit the page bodies here, then run from the repo root: python3 tools/delmin-draft-build.py
+# and again with --combined for the version styled after Lambs to Lions.
 import pathlib, sys, html as H
-OUT = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else pathlib.Path(__file__).resolve().parent.parent / "delmin.org-draft"
+# --combined builds the version that blends in the Lambs to Lions look, into delmin.org-draft/combined/
+COMBINED = "--combined" in sys.argv
+args = [x for x in sys.argv[1:] if not x.startswith("--")]
+ROOT = pathlib.Path(__file__).resolve().parent.parent / "delmin.org-draft"
+OUT = pathlib.Path(args[0]) if args else (ROOT / "combined" if COMBINED else ROOT)
 OUT.mkdir(parents=True, exist_ok=True)
 SITE = "Deliverance Ministries"
 OLD = "https://delmin.org"          # current site; media still lives there until it is moved
@@ -13,6 +18,7 @@ def tbc(t="to confirm"):
     return f'<span class="tbc" title="Draft: fact still to confirm">{t}</span>'
 
 def page(fname, title, desc, body, current):
+    COMPARE = (f' <a href="../{fname}">See the first draft</a>' if COMBINED else f' <a href="combined/{fname}">See the combined style</a>')
     links = [("get-help.html","Get help"),("learn.html","Learn to minister"),("churches.html","For churches"),("testimonies.html","Testimonies"),("give.html","Give")]
     def a(h,t):
         cur = ' aria-current="page"' if h==current else ''
@@ -31,7 +37,7 @@ def page(fname, title, desc, body, current):
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="draftbar">Draft preview of a new delmin.org. Not the live site. Forms don't send yet, and <span class="tbc">highlighted</span> facts are still being confirmed.</div>
+<div class="draftbar">Draft preview of a new delmin.org. Not the live site. Forms don't send yet, and <span class="tbc">highlighted</span> facts are still being confirmed.{COMPARE}</div>
 <header class="top"><div class="wrap">
 <a class="brand" href="index.html">{LOGO}<span>{SITE}</span></a>
 <nav>{nav}</nav>
@@ -480,6 +486,209 @@ footer .ref{color:#a9c4ca}
 @media (max-width:820px){.personas,.vgrid,.givegrid{grid-template-columns:1fr 1fr}.two{grid-template-columns:1fr}.path{grid-template-columns:1fr 1fr}.fgrid{grid-template-columns:1fr}}
 @media (max-width:560px){body{font-size:16px}.personas,.vgrid,.givegrid,.audios,.row2{grid-template-columns:1fr}nav a{font-size:.86rem}.hero{padding:44px 0 40px}.stepcard{grid-template-columns:1fr}.path{grid-template-columns:1fr}}
 '''
+
+# ---------------- COMBINED (Lambs to Lions look) ----------------
+HOME2 = f'''
+<section class="hero split"><div class="wrap">
+<figure class="hero-img"><img src="../../freedom.jpg" srcset="../../freedom-700.jpg 700w, ../../freedom.jpg 1200w" sizes="(max-width:820px) 100vw, 460px" width="1200" height="1200" alt="A man kneels with arms raised toward a cross as his chains break."></figure>
+<div class="hero-text">
+<h1>Freedom and healing in Jesus Christ</h1>
+<div class="verses">
+<p>“If therefore the Son makes you free, you will be free indeed.” <span class="ref">John 8:36</span></p>
+<p>The Father “delivered us out of the power of darkness, and translated us into the Kingdom of the Son of his love.” <span class="ref">Colossians 1:13</span></p>
+<p>“Stand firm therefore in the liberty by which Christ has made us free, and don’t be entangled again with a yoke of bondage.” <span class="ref">Galatians 5:1</span></p>
+</div>
+<a class="btn" href="#help">Find the help that fits you</a><a class="btn ghost" href="about.html">About the ministry</a>
+</div>
+</div></section>
+
+<section><div class="wrap narrow">
+<p class="lead">Depression, fear, addiction, illness, guilt, heartache or trauma don’t have to have the last word. <b>Jesus still sets people free today,</b> and every ministry session here is free of charge.</p>
+</div></section>
+
+<section id="help" class="alt"><div class="wrap">
+<h2 class="center">How can we help you?</h2>
+<div class="personas">{PERSONAS}</div>
+</div></section>
+
+<section><div class="wrap">
+<h2 class="center">What happens in ministry</h2>
+<ol class="strip">
+<li><b>Learn</b>what Jesus did and still does</li>
+<li><b>Close the doors</b>forgive, repent, renounce</li>
+<li><b>Soul ties</b>break ungodly ties</li>
+<li><b>Inner healing</b>for past wounds</li>
+<li><b>Deliverance</b>evil spirits leave in Jesus’ name</li>
+<li><b>Healing</b>prayer for the body</li>
+<li><b>Stay free</b>walk in the Spirit</li>
+</ol>
+</div></section>
+
+<section class="alt"><div class="wrap two">
+<div>
+<h2>Monday nights in Oklahoma City</h2>
+<ol class="timeline">
+<li><b>5:30 pm</b> Introduction and teaching</li>
+<li><b>6:30 pm</b> Door-closing prayer, together <span class="pill">required</span></li>
+<li><b>7:30 pm</b> Personal ministry until about {tbc("10:30 pm")}</li>
+</ol>
+<p>9201 N. Rockwell, Oklahoma City, OK 73132<br><span class="muted">West side of Rockwell, between NW Expressway and Britton Rd.</span></p>
+<a class="btn" href="help-nearby.html">Plan your visit</a>
+</div>
+<div>
+<blockquote class="v">“The Spirit of the Lord is on me, because he has anointed me to preach good news to the poor. He has sent me to heal the broken hearted, to proclaim release to the captives, recovering of sight to the blind, to deliver those who are crushed.” <span class="ref">Luke 4:18</span></blockquote>
+<div class="grid2">
+<div class="box won"><span class="lbl">Hear what God has done</span><p>Nearly thirty people share, in their own voices, what Jesus has done.</p><a href="testimonies.html">Listen to testimonies →</a></div>
+<div class="box navy"><span class="lbl">Always free</span><p>Trained volunteer ministers, carried by the gifts of people set free.</p><a href="give.html">Support the ministry →</a></div>
+</div>
+</div>
+</div></section>
+
+<section class="cta-band"><div class="wrap">
+<h2>Ready to experience the freedom God has for you?</h2>
+<p><i>“Freely you received, so freely give.”</i> <span class="ref">Matthew 10:8</span></p>
+<a class="btn" href="get-help.html">Get help</a><a class="btn ghost" href="give.html">Give</a>
+</div></section>
+'''
+
+CSS2 = '''/* Deliverance Ministries draft, combined with the Lambs to Lions look */
+:root{--ink:#1f2433;--muted:#596178;--line:#d9dbe3;--paper:#fbfaf7;--card:#fff;
+--navy:#24305e;--navy-soft:#e9ecf6;--gold:#a8790a;--gold-soft:#fbf3df;--gold-line:#ecd9a6;
+--wine:#7a2340;--wine-soft:#f7e9ee;--sage:#2f6b55;--sage-soft:#e6f2ec;
+--serif:Georgia,"Times New Roman",serif;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.6 var(--serif)}
+img,svg,iframe{max-width:100%}
+a{color:var(--navy)}
+h1,h2,h3,nav,label,.btn,.lbl,.pill,.go,figcaption,footer,.draftbar,.progress,.strip,.timeline b,.tbc,.note{font-family:var(--sans)}
+h1,h2,h3{color:var(--navy);line-height:1.25}
+h2{font-size:1.55rem;margin:0 0 .7rem}
+h3{font-size:1.1rem;margin:0 0 .35rem}
+p{margin:0 0 1rem}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+.narrow{max-width:720px}
+.center{text-align:center}
+.muted{color:var(--muted)}.small{font-size:.86rem}
+.ref{font-family:var(--sans);font-size:.78em;color:var(--muted);white-space:nowrap;font-style:normal}
+.tbc{background:#fff1a8;color:#5c4a00;border-radius:4px;padding:0 5px;font-size:.8em;font-weight:600;white-space:nowrap;font-style:normal}
+.draftbar{background:#fff1a8;color:#3d3200;font-size:.84rem;text-align:center;padding:6px 12px}
+.draftbar a{color:#3d3200}
+header.top{background:var(--navy);position:sticky;top:0;z-index:5}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px 16px;min-height:60px;padding-top:6px;padding-bottom:6px}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-family:var(--sans);font-weight:700;font-size:1.05rem;letter-spacing:.02em}
+.brand svg{width:34px;height:34px;flex:none}
+nav{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center}
+nav a{color:#dfe4f5;text-decoration:none;font-size:.92rem;white-space:nowrap}
+nav a:hover,nav a[aria-current]{color:#fff;text-decoration:underline;text-underline-offset:4px}
+nav a.cta{background:var(--gold);color:#fff;padding:7px 14px;border-radius:999px;text-decoration:none}
+.hero{background:linear-gradient(160deg,var(--navy) 0%,#33427e 100%);color:#fff;padding:48px 0}
+.hero h1{color:#fff;font-size:clamp(2.2rem,6vw,3.3rem);line-height:1.08;margin:0 0 1rem}
+.hero.split .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:center}
+.hero.split .hero-img{order:2;margin:0}
+.hero.split .hero-img img{display:block;width:100%;height:auto;border-radius:14px;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.hero .verses{margin:0 0 1.6rem;border-left:3px solid var(--gold);padding-left:16px}
+.hero .verses p{font-style:italic;font-size:1.02rem;line-height:1.5;color:#eef1fb;margin:0 0 .7rem}
+.hero .verses .ref{color:#c4cbe6}
+.page-hero{background:var(--navy);color:#dfe4f5;padding:44px 0 36px;text-align:center}
+.page-hero h1{color:#fff;margin:0 0 .6rem;font-size:clamp(1.9rem,6vw,2.7rem)}
+.page-hero p{margin:.4rem auto 0;max-width:680px}
+.page-hero .ref{color:#c4cbe6}
+.page-hero .lead{font-style:italic;font-size:1.3rem;color:#fff}
+section{padding:44px 0}
+section.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.lead{font-size:1.15rem;text-align:center;max-width:720px;margin:0 auto}
+.lead b{color:var(--wine);font-family:var(--sans)}
+.btn{display:inline-block;background:var(--gold);color:#fff;text-decoration:none;font-weight:700;padding:13px 26px;border-radius:999px;font-size:1rem;border:0;cursor:pointer}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:var(--navy);border:2px solid var(--navy)}
+.hero .btn.ghost,.cta-band .btn.ghost{color:#fff;border-color:#fff;margin-left:8px}
+.btn[disabled]{opacity:.55;cursor:not-allowed}
+.personas{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:1.2rem}
+.personas.three{margin-bottom:24px}
+.persona{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-top:4px solid var(--navy);border-radius:10px;padding:18px 20px;text-decoration:none;color:var(--ink);transition:box-shadow .15s,transform .15s}
+.persona:hover{box-shadow:0 6px 20px rgba(36,48,94,.14);transform:translateY(-2px)}
+.persona svg{width:44px;height:44px;margin-bottom:10px}
+.persona svg [fill="#17394a"]{fill:var(--navy)}
+.persona svg [fill="#c08a2b"]{fill:var(--gold)}
+.persona svg [stroke="#17394a"]{stroke:var(--navy)}
+.persona p{color:var(--muted);flex:1;font-size:.98rem}
+.go{color:var(--gold);font-weight:700;font-size:.95rem}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.box{border-radius:10px;padding:16px 18px}
+.box p{font-size:.98rem}
+.box .lbl{display:block;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.35rem}
+.box a{font-family:var(--sans);font-weight:700;font-size:.92rem}
+.won{background:var(--sage-soft)}.won .lbl,.won a{color:var(--sage)}
+.navy{background:var(--navy-soft)}.navy .lbl{color:var(--navy)}
+blockquote.v{margin:0 0 1rem;padding:.8rem 1.1rem;background:var(--gold-soft);border-left:4px solid var(--gold);font-style:italic;border-radius:0 6px 6px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin:0 0 18px}
+.card.soft{background:var(--gold-soft);border-color:var(--gold-line)}
+.card.quote p{font-style:italic}
+.timeline{list-style:none;padding:0;margin:0 0 1rem;border-left:3px solid var(--gold)}
+.timeline li{padding:4px 0 10px 16px}
+.timeline b{display:inline-block;min-width:74px;color:var(--navy)}
+.pill{display:inline-block;background:var(--navy);color:#fff;font-size:.72rem;font-weight:700;border-radius:999px;padding:1px 9px;vertical-align:middle}
+.steps{padding-left:22px}.steps li{margin-bottom:8px}
+ol.strip{list-style:none;padding:0;margin:1rem 0 0;display:grid;grid-template-columns:repeat(7,1fr);gap:8px;counter-reset:s}
+ol.strip li{counter-increment:s;background:#fff;border:1px solid var(--line);border-top:4px solid var(--navy);border-radius:8px;padding:10px 8px;text-align:center;font-size:.85rem;line-height:1.3;color:var(--muted)}
+ol.strip li::before{content:counter(s);display:block;width:26px;height:26px;margin:0 auto 6px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;line-height:26px}
+ol.strip li b{display:block;color:var(--navy);font-size:.95rem;margin-bottom:2px}
+.check{list-style:none;padding:0}.check li{padding-left:28px;position:relative;margin-bottom:6px}
+.check li::before{content:"";position:absolute;left:0;top:6px;width:16px;height:16px;border:2px solid var(--navy);border-radius:3px;background:#fff}
+.progress{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.progress span{background:var(--navy-soft);color:var(--navy);font-size:.82rem;font-weight:700;border-radius:999px;padding:4px 12px}
+.stepcard{display:grid;grid-template-columns:44px 1fr;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;margin-bottom:16px}
+.stepcard .n{width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;font-family:var(--sans);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.stepcard .form{margin-top:10px;background:var(--paper)}
+.video{margin:8px 0 12px}
+.frame{position:relative;padding-top:56.25%;border-radius:10px;overflow:hidden;background:#1a2244}
+.frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+figcaption{font-size:.9rem;font-weight:600;color:var(--navy);margin-top:6px}
+.len{color:var(--muted);font-weight:400;margin-left:6px}
+.vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:1rem}
+.path{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:6px 0 24px}
+.path div{background:var(--navy);color:#fff;border-radius:10px;padding:12px;font-family:var(--sans);font-weight:600;font-size:.92rem}
+.path b{display:inline-flex;width:24px;height:24px;border-radius:50%;background:var(--gold);align-items:center;justify-content:center;margin-right:6px}
+.offer{border-left:4px solid var(--gold);padding:2px 0 2px 14px;margin-bottom:14px}
+.offer p{margin:0}
+.audios{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:1.6rem}
+.audio{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--sage);border-radius:10px;padding:12px 14px}
+.audio b{display:block;font-family:var(--sans);color:var(--navy);margin-bottom:2px}
+.audio .desc{font-size:.9rem;color:var(--muted);margin:0 0 8px}
+.audio audio{width:100%}
+.givegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.form label{display:block;font-size:.9rem;font-weight:600;margin:0 0 4px;color:var(--navy)}
+.form input,.form select,.form textarea{width:100%;font:16px/1.4 var(--sans);padding:10px 12px;border:1.5px solid var(--line);border-radius:8px;background:#fff;margin-bottom:12px}
+.form textarea{min-height:90px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+.note{font-size:.85rem;color:#5c4a00;background:#fff1a8;border-radius:8px;padding:6px 10px}
+.cta-band{background:var(--navy);color:#fff;text-align:center;padding:48px 0}
+.cta-band h2{color:#fff}
+.cta-band p{color:#dfe4f5;max-width:620px;margin:0 auto 1.3rem}
+.cta-band .ref{color:#c4cbe6}
+footer{background:#1a2244;color:#b9c1dc;padding:30px 0 20px;font-size:.88rem}
+footer a{color:#dfe4f5}footer b{color:#fff}
+.fgrid{display:grid;grid-template-columns:2fr 1fr 1.3fr;gap:20px}
+footer .ref{color:#9aa3c4}
+@media (max-width:820px){
+ .hero.split{padding:0 0 40px;text-align:center}
+ .hero.split .wrap{grid-template-columns:1fr;gap:22px;padding:0}
+ .hero.split .hero-img{order:0}
+ .hero.split .hero-img img{border-radius:0;box-shadow:none}
+ .hero.split .hero-text{padding:0 20px}
+ .hero .verses{text-align:left}
+ .personas,.vgrid,.givegrid{grid-template-columns:1fr 1fr}.two{grid-template-columns:1fr}.path{grid-template-columns:1fr 1fr}.fgrid{grid-template-columns:1fr}
+ ol.strip{grid-template-columns:1fr;gap:6px} ol.strip li{display:flex;align-items:center;gap:12px;text-align:left;padding:10px 12px} ol.strip li::before{margin:0;flex:none} ol.strip li b{display:inline;margin:0 6px 0 0}
+}
+@media (max-width:560px){body{font-size:17px}.personas,.vgrid,.givegrid,.audios,.row2,.grid2{grid-template-columns:1fr}nav a{font-size:.86rem}.stepcard{grid-template-columns:1fr}.path{grid-template-columns:1fr}.hero .btn.ghost,.cta-band .btn.ghost{margin:10px 0 0 0}}
+'''
+
+if COMBINED:
+    HOME = HOME2
+    CSS = CSS2
+    LOGO = LOGO.replace('#c08a2b', '#a8790a').replace('#17394a', '#1a2244')
 
 FAV = LOGO.replace(' aria-hidden="true"', ' xmlns="http://www.w3.org/2000/svg"')
 
