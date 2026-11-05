@@ -8,6 +8,7 @@ args = [x for x in sys.argv[1:] if not x.startswith("--")]
 ROOT = pathlib.Path(__file__).resolve().parent.parent / "delmin.org-draft"
 OUT = pathlib.Path(args[0]) if args else (ROOT / "combined" if COMBINED else ROOT)
 OUT.mkdir(parents=True, exist_ok=True)
+IMG = "../" if COMBINED else ""  # shared images live in delmin.org-draft/
 SITE = "Deliverance Ministries"
 OLD = "https://delmin.org"          # current site; media still lives there until it is moved
 UP = OLD + "/wp-content/uploads/2017/09/"
@@ -278,10 +279,10 @@ LEARN = f'''
 <div class="card soft"><h3>Free handouts and downloads</h3>
 <p>Prayers, renunciations, problem lists (including Spanish), and the full training sets on CD and DVD are being updated and converted to free downloads.</p>
 <p class="muted">Coming soon {tbc("being converted")}</p></div>
-<div class="card soft book"><a href="https://a.co/d/03yBlejH" target="_blank" rel="noopener"><img src="{UP}Doing-the-Supernatural-Works-of-Jesus.jpg" width="180" height="258" alt="Cover of Doing the Supernatural Works of Jesus"></a>
-<div><h3>The book</h3>
+<div class="card soft book"><div><h3>Founder Everett Cox&rsquo;s book</h3>
 <p><i>Doing the Supernatural Works of Jesus</i>, the ministry's training manual.</p>
-<p><a class="btn ghost" href="https://a.co/d/03yBlejH" target="_blank" rel="noopener">Get the book on Amazon</a></p></div></div>
+<p><a class="btn ghost" href="https://a.co/d/03yBlejH" target="_blank" rel="noopener">Get the book on Amazon</a></p></div>
+<a href="https://a.co/d/03yBlejH" target="_blank" rel="noopener"><img src="{IMG}book-cover.jpg" width="800" height="1143" alt="Cover of Doing the Supernatural Works of Jesus by Everett E Cox"></a></div>
 </div>
 
 <h2>Join the Monday team</h2>
@@ -468,8 +469,7 @@ figcaption{font-size:.9rem;font-weight:600;color:var(--teal);margin-top:6px}
 .path div{background:var(--teal);color:#fff;border-radius:10px;padding:12px;font-weight:600;font-size:.92rem}
 .path b{display:inline-flex;width:24px;height:24px;border-radius:50%;background:var(--gold);align-items:center;justify-content:center;margin-right:6px}
 .offer{border-left:4px solid var(--gold);padding:2px 0 2px 14px;margin-bottom:14px}
-.book{display:flex;gap:16px;align-items:flex-start}
-.book img{width:110px;height:auto;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,.25);flex:none}
+.book img{display:block;width:100%;height:auto;margin-top:14px;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,.25)}
 .offer p{margin:0}
 .audios{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 .audio{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
@@ -655,8 +655,7 @@ figcaption{font-size:.9rem;font-weight:600;color:var(--navy);margin-top:6px}
 .path div{background:var(--navy);color:#fff;border-radius:10px;padding:12px;font-family:var(--sans);font-weight:600;font-size:.92rem}
 .path b{display:inline-flex;width:24px;height:24px;border-radius:50%;background:var(--gold);align-items:center;justify-content:center;margin-right:6px}
 .offer{border-left:4px solid var(--gold);padding:2px 0 2px 14px;margin-bottom:14px}
-.book{display:flex;gap:16px;align-items:flex-start}
-.book img{width:110px;height:auto;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,.25);flex:none}
+.book img{display:block;width:100%;height:auto;margin-top:14px;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,.25)}
 .offer p{margin:0}
 .audios{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:1.6rem}
 .audio{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--sage);border-radius:10px;padding:12px 14px}
