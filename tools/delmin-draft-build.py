@@ -47,7 +47,7 @@ def page(fname, title, desc, body, current):
 </main>
 <footer><div class="wrap">
 <div class="fgrid">
-<div><p><b>{SITE}, Inc.</b> {tbc("legal name")}<br>Oklahoma City, Oklahoma<br>Serving since 1984</p>
+<div><p><b>{SITE} Inc</b><br>Oklahoma City, Oklahoma<br>Serving since 1984</p>
 <p>All ministry is free of charge. “Freely you received, so freely give.” <span class="ref">Matthew 10:8</span></p></div>
 <div><p><a href="about.html">About the ministry</a><br><a href="contact.html">Contact us</a><br><a href="get-help.html">Get help</a><br><a href="give.html">Give</a></p></div>
 <div><p>Phone (405) 842-5509<br>Mail: 2828 NW 57th, Ste. 305<br>Oklahoma City, OK 73112</p></div>
@@ -344,7 +344,7 @@ GIVE = f'''
 <section><div class="wrap">
 <div class="givegrid">
 <div class="card"><h3>Give online</h3><p>One-time or monthly, by card or PayPal.</p><a class="btn" href="{OLD}/donate/">Give online</a><p class="small muted">Opens the current donation page for now.</p></div>
-<div class="card"><h3>Give by check</h3><p>Payable to Deliverance Ministries, Inc.<br>2828 NW 57th, Ste. 305<br>Oklahoma City, OK 73112</p></div>
+<div class="card"><h3>Give by check</h3><p>Payable to Deliverance Ministries Inc<br>2828 NW 57th, Ste. 305<br>Oklahoma City, OK 73112</p></div>
 <div class="card"><h3>Where it goes</h3><ul class="check"><li>Free Monday night ministry</li><li>Free phone, Zoom and FaceTime sessions</li><li>Free training and downloads</li><li>Visits to churches and groups</li></ul></div>
 </div>
 <p class="center muted">“Let each man give according as he has determined in his heart, not grudgingly or under compulsion, for God loves a cheerful giver.” <span class="ref">2 Corinthians 9:7</span></p>
@@ -385,7 +385,7 @@ CONTACT = f'''
 <div>
 <p><b>Phone</b><br>(405) 842-5509</p>
 <p><b>Email</b><br>{tbc("ministry address")}</p>
-<p><b>Mail</b><br>Deliverance Ministries, Inc.<br>2828 NW 57th, Ste. 305<br>Oklahoma City, OK 73112</p>
+<p><b>Mail</b><br>Deliverance Ministries Inc<br>2828 NW 57th, Ste. 305<br>Oklahoma City, OK 73112</p>
 <p><b>Monday nights</b><br>9201 N. Rockwell, Oklahoma City, OK 73132</p>
 </div>
 <div>{form("Send a message", NAME_EMAIL + '<div><label>Message</label><textarea></textarea></div>', "Send")}</div>
