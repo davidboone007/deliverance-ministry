@@ -280,7 +280,7 @@ LEARN = f'''
 <p class="muted">Coming soon {tbc("being converted")}</p></div>
 <div class="card soft"><h3>The book</h3>
 <p><i>Doing the Supernatural Works of Jesus</i>, the ministry's training manual.</p>
-<p><a class="btn ghost" href="#">Get the book {tbc("Amazon link?")}</a></p></div>
+<p><a class="btn ghost" href="https://a.co/d/03yBlejH" target="_blank" rel="noopener">Get the book on Amazon</a></p></div>
 </div>
 
 <h2>Join the Monday team</h2>
