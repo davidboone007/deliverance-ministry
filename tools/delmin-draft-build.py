@@ -357,7 +357,7 @@ GIVE = f'''
 </div></section>
 <section><div class="wrap">
 <div class="givegrid">
-<div class="card"><h3>Give online</h3><p>One-time or monthly, by card or PayPal.</p><a class="btn" href="{OLD}/donate/">Give online</a><p class="small muted">Opens the current donation page for now.</p></div>
+<div class="card"><h3>Give online</h3><p>One-time or monthly, by card or PayPal.</p><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank"><input type="hidden" name="cmd" value="_s-xclick"><input type="hidden" name="hosted_button_id" value="Z3A55CQMYUGSG"><button class="btn" type="submit">Give online</button></form><p class="small muted">Opens PayPal in a new tab.</p></div>
 <div class="card"><h3>Give by check</h3><p>Payable to Deliverance Ministries Inc<br>2828 NW 57th, Ste. 305<br>Oklahoma City, OK 73112</p></div>
 <div class="card"><h3>Where it goes</h3><ul class="check"><li>Free Monday night ministry</li><li>Free phone, Zoom and FaceTime sessions</li><li>Free training and downloads</li><li>Visits to churches and groups</li></ul></div>
 </div>
