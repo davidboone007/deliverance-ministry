@@ -1,7 +1,7 @@
 # Builds the delmin.org revamp draft into the healing.place repo at /delmin.org-draft/.
 # Edit the page bodies here, then run from the repo root: python3 tools/delmin-draft-build.py
 # and again with --combined for the version styled after Lambs to Lions.
-import pathlib, sys, html as H
+import hashlib, pathlib, sys, html as H
 # --combined builds the version that blends in the Lambs to Lions look, into delmin.org-draft/combined/
 COMBINED = "--combined" in sys.argv
 args = [x for x in sys.argv[1:] if not x.startswith("--")]
@@ -35,7 +35,7 @@ def page(fname, title, desc, body, current):
 <title>{title}</title>
 <meta name="description" content="{desc}">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v={hashlib.sha1(CSS.encode()).hexdigest()[:8]}">
 </head>
 <body>
 <div class="draftbar">Draft preview of a new delmin.org. Not the live site. Forms don't send yet, and <span class="tbc">highlighted</span> facts are still being confirmed.{COMPARE}</div>
