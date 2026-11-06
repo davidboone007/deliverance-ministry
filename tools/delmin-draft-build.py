@@ -277,8 +277,16 @@ LEARN = f'''
 
 <div class="two">
 <div class="card soft"><h3>Free handouts and downloads</h3>
-<p>Prayers, renunciations, problem lists (including Spanish), and the full training sets on CD and DVD are being updated and converted to free downloads.</p>
-<p class="muted">Coming soon {tbc("being converted")}</p></div>
+<p>Free to download, print and share.</p>
+<ul class="dl">
+<li><a href="{IMG}downloads/introduction-to-deliverance.pdf">Introduction to Deliverance</a> <span class="muted">2 pages · what deliverance is</span></li>
+<li><a href="{IMG}downloads/who-i-am-in-christ.pdf">Who I Am in Christ</a> <span class="muted">2 pages · say five each day</span></li>
+<li><a href="{IMG}downloads/problem-checklist.pdf">Problem Checklist</a> <span class="muted">2 pages · fill out before your session</span></li>
+<li><a href="{IMG}downloads/follow-up-for-recipients.pdf">You Don&rsquo;t Walk This Alone</a> <span class="muted">3 pages · after your session</span></li>
+<li><a href="{IMG}downloads/follow-up-for-ministers.pdf">Follow-Up for Ministers</a> <span class="muted">4 pages · staying in touch</span></li>
+<li><a href="{IMG}downloads/the-importance-of-forgiveness.pdf">The Importance of Forgiveness</a> <span class="muted">19 pages · Scripture study</span></li>
+</ul>
+<p class="muted">More prayers, renunciations, the Spanish problem list, and the CD and DVD training sets are being converted. {tbc("coming soon")}</p></div>
 <div class="card soft book"><div><h3>Founder Everett Cox&rsquo;s book</h3>
 <p><i>Doing the Supernatural Works of Jesus</i>, the ministry's training manual.</p>
 <p><a class="btn ghost" href="https://a.co/d/03yBlejH" target="_blank" rel="noopener">Get the book on Amazon</a></p></div>
@@ -469,6 +477,7 @@ figcaption{font-size:.9rem;font-weight:600;color:var(--teal);margin-top:6px}
 .path div{background:var(--teal);color:#fff;border-radius:10px;padding:12px;font-weight:600;font-size:.92rem}
 .path b{display:inline-flex;width:24px;height:24px;border-radius:50%;background:var(--gold);align-items:center;justify-content:center;margin-right:6px}
 .offer{border-left:4px solid var(--gold);padding:2px 0 2px 14px;margin-bottom:14px}
+.dl{list-style:none;padding:0;margin:8px 0}.dl li{padding:7px 0;border-bottom:1px solid rgba(0,0,0,.08)}.dl a{font-weight:700}.dl .muted{display:block;font-size:.88em}
 .book img{display:block;width:100%;height:auto;margin-top:14px;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,.25)}
 .offer p{margin:0}
 .audios{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
@@ -655,6 +664,7 @@ figcaption{font-size:.9rem;font-weight:600;color:var(--navy);margin-top:6px}
 .path div{background:var(--navy);color:#fff;border-radius:10px;padding:12px;font-family:var(--sans);font-weight:600;font-size:.92rem}
 .path b{display:inline-flex;width:24px;height:24px;border-radius:50%;background:var(--gold);align-items:center;justify-content:center;margin-right:6px}
 .offer{border-left:4px solid var(--gold);padding:2px 0 2px 14px;margin-bottom:14px}
+.dl{list-style:none;padding:0;margin:8px 0}.dl li{padding:7px 0;border-bottom:1px solid rgba(0,0,0,.08)}.dl a{font-weight:700}.dl .muted{display:block;font-size:.88em}
 .book img{display:block;width:100%;height:auto;margin-top:14px;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,.25)}
 .offer p{margin:0}
 .audios{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:1.6rem}
