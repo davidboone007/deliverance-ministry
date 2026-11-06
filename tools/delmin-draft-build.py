@@ -51,9 +51,9 @@ def page(fname, title, desc, body, current):
 <div><p><b>{SITE} Inc</b><br>Oklahoma City, Oklahoma<br>Serving since 1984</p>
 <p>All ministry is free of charge. “Freely you received, so freely give.” <span class="ref">Matthew 10:8</span></p></div>
 <div><p><a href="about.html">About the ministry</a><br><a href="contact.html">Contact us</a><br><a href="get-help.html">Get help</a><br><a href="give.html">Give</a></p></div>
-<div><p>Phone (405) 842-5509<br>Mail: 2828 NW 57th, Ste. 305<br>Oklahoma City, OK 73112</p></div>
+<div><p>Phone (405) 842-5509<br><a href="mailto:delmin.org@gmail.com">delmin.org@gmail.com</a><br>Mail: 2828 NW 57th, Ste. 305<br>Oklahoma City, OK 73112</p></div>
 </div>
-<p class="small">Scripture quotations are from the World English Bible (public domain).</p>
+<p class="small">Scripture quotations are from the World English Bible (public domain), except where noted.</p>
 </div></footer>
 </body>
 </html>
@@ -280,7 +280,7 @@ LEARN = f'''
 <p>Free to download, print and share.</p>
 <ul class="dl">
 <li><a href="{IMG}downloads/introduction-to-deliverance.pdf">Introduction to Deliverance</a> <span class="muted">2 pages · what deliverance is</span></li>
-<li><a href="{IMG}downloads/who-i-am-in-christ.pdf">Who I Am in Christ</a> <span class="muted">2 pages · say five each day</span></li>
+<li><a href="{IMG}downloads/who-i-am-in-christ.pdf">Who I Am in Christ</a> <span class="muted">1 page · say five each day</span></li>
 <li><a href="{IMG}downloads/problem-checklist.pdf">Problem Checklist</a> <span class="muted">2 pages · fill out before your session</span></li>
 <li><a href="{IMG}downloads/follow-up-for-recipients.pdf">You Don&rsquo;t Walk This Alone</a> <span class="muted">3 pages · after your session</span></li>
 <li><a href="{IMG}downloads/follow-up-for-ministers.pdf">Follow-Up for Ministers</a> <span class="muted">4 pages · staying in touch</span></li>
@@ -337,10 +337,14 @@ TBODY = "".join(f'<h2>{g}</h2><div class="audios">' + "".join(f'<div class="audi
 TESTIMONIES = f'''
 <section class="page-hero"><div class="wrap">
 <h1>Testimonies</h1>
-<p>{cnt} people share, in their own voices, what Jesus has done. Free to listen and share. Downloads coming soon.</p>
+<p>{cnt} people share, in their own voices, what Jesus has done. Free to listen, download and share. To save one, use the download option in its player.</p>
 </div></section>
 <section><div class="wrap">
-<p class="muted small">Titles were tidied for this draft, and three duplicate recordings were removed.</p>
+<h2>David&rsquo;s testimony</h2>
+<div class="card soft story"><p>“I confessed Christ and was baptized at about thirteen, then went back to my worldly ways. It took me decades to see how off-course I had become and the battle I had been ignoring. I attended church in spurts, prayed generic prayers and hoped for the best. Satan didn’t have to attack me hard because in my sin I was neutralized. I was having no impact for the Kingdom. At one point I didn’t even call myself a Christian. I called myself agnostic – I believed in a creator and because of my upbringing I worshipped it as a Christian, not knowing a generic creator isn’t the God of the Bible. I preferred the notion of Thomas Jefferson’s Bible that had all the supernatural cut out.</p>
+<p>“That changed one day in 2017, when Jesus told me that I either believe all of the Bible or none of it. He gave me a vision of myself straddling a fence, needing to pick a side. It felt like an ultimatum, a now-or-never moment. I chose to believe it all. I flipped open my Bible and it opened to John 14. My eyes fell on verse 6, ‘Jesus said to him, “I am the way, the truth, and the life. No one comes to the Father except through Me.”’ (NKJV) I couldn’t ignore it and began changing my beliefs.</p>
+<p>“That’s when the attacks started. I was un-armed cannon fodder in a bloody war. The attacks intensified, manifesting in ways I could not rationalize away. That opened my eyes to the ‘supernatural’ – the spiritual realm. But as the attacks continued, awareness alone was more frightening than helpful. Then, through guidance from strong, experienced spiritual warriors, Jesus began to show me who I am in Him, and what He had given me to fight with. Now my mission is to keep growing as a spiritual warrior, to help others in their spiritual struggles, and to train those willing to pick up their cross and fight the good fight for God’s Kingdom.”</p>
+<p class="sig">&mdash; David</p></div>
 {TBODY}
 </div></section>
 '''
@@ -358,7 +362,7 @@ GIVE = f'''
 <div class="card"><h3>Where it goes</h3><ul class="check"><li>Free Monday night ministry</li><li>Free phone, Zoom and FaceTime sessions</li><li>Free training and downloads</li><li>Visits to churches and groups</li></ul></div>
 </div>
 <p class="center muted">“Let each man give according as he has determined in his heart, not grudgingly or under compulsion, for God loves a cheerful giver.” <span class="ref">2 Corinthians 9:7</span></p>
-<p class="center small muted">Tax-deductible status {tbc("confirm 501(c)(3) wording")}</p>
+<p class="center small muted">Deliverance Ministries Inc is a 501(c)(3) nonprofit organization. Gifts are tax-deductible as allowed by law.</p>
 </div></section>
 '''
 
@@ -478,6 +482,7 @@ figcaption{font-size:.9rem;font-weight:600;color:var(--teal);margin-top:6px}
 .path b{display:inline-flex;width:24px;height:24px;border-radius:50%;background:var(--gold);align-items:center;justify-content:center;margin-right:6px}
 .offer{border-left:4px solid var(--gold);padding:2px 0 2px 14px;margin-bottom:14px}
 .dl{list-style:none;padding:0;margin:8px 0}.dl li{padding:7px 0;border-bottom:1px solid rgba(0,0,0,.08)}.dl a{font-weight:700}.dl .muted{display:block;font-size:.88em}
+.story p{font-style:italic}.story .sig{font-style:normal;font-weight:700;margin:0}
 .book img{display:block;width:100%;height:auto;margin-top:14px;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,.25)}
 .offer p{margin:0}
 .audios{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
@@ -665,6 +670,7 @@ figcaption{font-size:.9rem;font-weight:600;color:var(--navy);margin-top:6px}
 .path b{display:inline-flex;width:24px;height:24px;border-radius:50%;background:var(--gold);align-items:center;justify-content:center;margin-right:6px}
 .offer{border-left:4px solid var(--gold);padding:2px 0 2px 14px;margin-bottom:14px}
 .dl{list-style:none;padding:0;margin:8px 0}.dl li{padding:7px 0;border-bottom:1px solid rgba(0,0,0,.08)}.dl a{font-weight:700}.dl .muted{display:block;font-size:.88em}
+.story p{font-style:italic}.story .sig{font-style:normal;font-weight:700;margin:0}
 .book img{display:block;width:100%;height:auto;margin-top:14px;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,.25)}
 .offer p{margin:0}
 .audios{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:1.6rem}
