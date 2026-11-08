@@ -284,6 +284,7 @@ LEARN = f'''
 <li><a href="{IMG}downloads/problem-checklist.pdf">Problem Checklist</a> <span class="muted">2 pages · fill out before your session</span></li>
 <li><a href="{IMG}downloads/follow-up-for-recipients.pdf">You Don&rsquo;t Walk This Alone</a> <span class="muted">3 pages · after your session</span></li>
 <li><a href="{IMG}downloads/follow-up-for-ministers.pdf">Follow-Up for Ministers</a> <span class="muted">4 pages · staying in touch</span></li>
+<li><a href="{IMG}downloads/door-closing-prayer.pdf">Door-Closing Prayer (at a glance)</a> <span class="muted">2 pages · minister&rsquo;s guide to lead the prayer</span></li>
 <li><a href="{IMG}downloads/the-importance-of-forgiveness.pdf">The Importance of Forgiveness</a> <span class="muted">19 pages · Scripture study</span></li>
 </ul>
 <p class="muted">More prayers, renunciations, the Spanish problem list, and the CD and DVD training sets are being converted. {tbc("coming soon")}</p></div>
