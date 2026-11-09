@@ -1,4 +1,4 @@
-# Builds the delmin.org revamp draft into the healing.place repo at /delmin.org-draft/.
+# Builds the delmin.org revamp draft into the Lambs to Lions site repo (lambs2lions.org) at /delmin.org-draft/.
 # Edit the page bodies here, then run from the repo root: python3 tools/delmin-draft-build.py
 # and again with --combined for the version styled after Lambs to Lions.
 import hashlib, pathlib, sys, html as H
