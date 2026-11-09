@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="style.css?v=6404a21e">
 </head>
 <body>
-<div class="draftbar">Draft preview of a new delmin.org. Not the live site. Forms don't send yet, and <span class="tbc">highlighted</span> facts are still being confirmed. <a href="../children.html">See the first draft</a></div>
+<div class="draftbar">Draft preview of a new delmin.org. Not the live site yet. Forms work, and <span class="tbc">highlighted</span> facts are still being confirmed. <a href="../children.html">See the first draft</a></div>
 <header class="top"><div class="wrap">
 <a class="brand" href="index.html"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#a8790a"/><path d="M20 7v26M12 15h16" stroke="#fff" stroke-width="3.4" stroke-linecap="round"/><path d="M8.5 28.5c3-2.2 5.2-2.2 7 0M24.5 28.5c1.8-2.2 4-2.2 7 0" stroke="#1a2244" stroke-width="2" fill="none" stroke-linecap="round"/></svg><span>Deliverance Ministries</span></a>
 <nav><a href="get-help.html" aria-current="page">Get help</a><a href="learn.html">Learn to minister</a><a href="churches.html">For churches</a><a href="testimonies.html">Testimonies</a><a href="give.html" class="cta">Give</a></nav>
@@ -34,18 +34,23 @@
 <figure class="video"><div class="frame"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/sIxPRqK1f8M" title="Ministering to children" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe></div><figcaption>Ministering to children </figcaption></figure>
 </div>
 <div>
-<form class="card form" onsubmit="return false">
+<form class="card form" action="https://api.web3forms.com/submit" method="POST" onsubmit="var n=this.elements.name.value||'someone';this.elements.subject.value='delmin.org: Request an appointment for your child from '+n+' ('+new Date().toLocaleString()+')';">
+<input type="hidden" name="access_key" value="d9fb3c2a-e827-4b5b-87e1-b6060e60867f">
+<input type="hidden" name="subject" value="delmin.org: Request an appointment for your child">
+<input type="hidden" name="from_name" value="delmin.org website">
+<input type="hidden" name="Form" value="Request an appointment for your child">
+<input type="hidden" name="redirect" value="https://healing.place/delmin.org-draft/combined/thanks.html">
+<input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
 <h3>Request an appointment for your child</h3>
 <div class="row2">
-<div><label>Your name</label><input type="text" autocomplete="name"></div>
-<div><label>Email</label><input type="email" autocomplete="email"></div>
+<div><label>Your name</label><input name="name" required type="text" autocomplete="name"></div>
+<div><label>Email</label><input name="email" required type="email" autocomplete="email"></div>
 </div>
 <div class="row2">
-<div><label>Phone</label><input type="tel" autocomplete="tel"></div>
-<div><label>City and state</label><input type="text"></div>
-</div><div class="row2"><div><label>Child's age</label><input type="number" min="0" max="17"></div><div><label>When did you receive ministry?</label><input type="date"></div></div><div><label>Anything we should know? (optional)</label><textarea></textarea></div>
-<p class="note">Draft preview: this form doesn't send yet.</p>
-<div><button class="btn" type="button" disabled>Request appointment</button></div>
+<div><label>Phone</label><input name="Phone" type="tel" autocomplete="tel"></div>
+<div><label>City and state</label><input name="City and state" type="text"></div>
+</div><div class="row2"><div><label>Child's age</label><input name="Child&#x27;s age" type="number" min="0" max="17"></div><div><label>When did you receive ministry?</label><input name="When did you receive ministry?" type="date"></div></div><div><label>Anything we should know? (optional)</label><textarea name="Anything we should know? (optional)"></textarea></div>
+<div><button class="btn" type="submit">Request appointment</button></div>
 </form>
 </div>
 </div></section>
