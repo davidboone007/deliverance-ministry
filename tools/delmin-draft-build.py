@@ -1,7 +1,7 @@
 # Builds the delmin.org revamp draft into the healing.place repo at /delmin.org-draft/.
 # Edit the page bodies here, then run from the repo root: python3 tools/delmin-draft-build.py
 # and again with --combined for the version styled after Lambs to Lions.
-import hashlib, pathlib, sys, html as H
+import hashlib, re, pathlib, sys, html as H
 # --combined builds the version that blends in the Lambs to Lions look, into delmin.org-draft/combined/
 COMBINED = "--combined" in sys.argv
 args = [x for x in sys.argv[1:] if not x.startswith("--")]
@@ -38,7 +38,7 @@ def page(fname, title, desc, body, current):
 <link rel="stylesheet" href="style.css?v={hashlib.sha1(CSS.encode()).hexdigest()[:8]}">
 </head>
 <body>
-<div class="draftbar">Draft preview of a new delmin.org. Not the live site. Forms don't send yet, and <span class="tbc">highlighted</span> facts are still being confirmed.{COMPARE}</div>
+<div class="draftbar">Draft preview of a new delmin.org. Not the live site yet. Forms work, and <span class="tbc">highlighted</span> facts are still being confirmed.{COMPARE}</div>
 <header class="top"><div class="wrap">
 <a class="brand" href="index.html">{LOGO}<span>{SITE}</span></a>
 <nav>{nav}</nav>
@@ -60,12 +60,29 @@ def page(fname, title, desc, body, current):
 '''
     (OUT/fname).write_text(doc)
 
+# Forms post to Web3Forms, which emails each submission. The access key decides the inbox.
+# TEMPORARY: this is David's healing.place key, so messages reach David until a key is
+# made for delmin.org@gmail.com at web3forms.com (then replace FORM_KEY).
+FORM_KEY = "d9fb3c2a-e827-4b5b-87e1-b6060e60867f"
+SITE_URL = "https://healing.place/delmin.org-draft/" + ("combined/" if COMBINED else "")
+
 def form(title, fields, button="Send request"):
-    return f'''<form class="card form" onsubmit="return false">
+    def named(m):
+        label = H.unescape(re.sub(r"<[^>]+>", "", m.group(1))).strip()
+        req = " required" if label in ("Your name", "Email") else ""
+        nm = {"Your name": "name", "Email": "email"}.get(label, label)  # Web3Forms uses "email" as the reply-to
+        return f'<label>{m.group(1)}</label><{m.group(2)} name="{H.escape(nm)}"{req}'
+    fields = re.sub(r'<label>(.*?)</label><(input|select|textarea)', named, fields)
+    return f'''<form class="card form" action="https://api.web3forms.com/submit" method="POST" onsubmit="var n=this.elements.name.value||'someone';this.elements.subject.value='delmin.org: {H.escape(title)} from '+n+' ('+new Date().toLocaleString()+')';">
+<input type="hidden" name="access_key" value="{FORM_KEY}">
+<input type="hidden" name="subject" value="delmin.org: {H.escape(title)}">
+<input type="hidden" name="from_name" value="delmin.org website">
+<input type="hidden" name="Form" value="{H.escape(title)}">
+<input type="hidden" name="redirect" value="{SITE_URL}thanks.html">
+<input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
 <h3>{title}</h3>
 {fields}
-<p class="note">Draft preview: this form doesn't send yet.</p>
-<div><button class="btn" type="button" disabled>{button}</button></div>
+<div><button class="btn" type="submit">{button}</button></div>
 </form>'''
 
 NAME_EMAIL = '''<div class="row2">
@@ -723,6 +740,16 @@ page("churches.html", "For churches · Deliverance Ministries", "Invite a minist
 page("testimonies.html", "Testimonies · Deliverance Ministries", "People share what Jesus has done.", TESTIMONIES, "testimonies.html")
 page("give.html", "Give · Deliverance Ministries", "Support free deliverance and healing ministry.", GIVE, "give.html")
 page("about.html", "About · Deliverance Ministries", "The enduring ministry of Jesus Christ.", ABOUT, "about.html")
+page("thanks.html", "Thank you · Deliverance Ministries", "Your message was sent.", '''
+<section class="page-hero"><div class="wrap">
+<h1>Thank you</h1>
+<p>Your message was sent. Someone from the ministry will get back to you soon.</p>
+</div></section>
+<section><div class="wrap narrow">
+<p>“Yahweh is near to those who have a broken heart, and saves those who have a crushed spirit.” <span class="ref">Psalm 34:18</span></p>
+<p><a class="btn" href="index.html">Back to the home page</a></p>
+</div></section>
+''', "")
 page("contact.html", "Contact · Deliverance Ministries", "Contact Deliverance Ministries.", CONTACT, "contact.html")
 (OUT/"style.css").write_text(CSS)
 (OUT/"favicon.svg").write_text(FAV)
