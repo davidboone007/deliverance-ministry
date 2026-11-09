@@ -10,8 +10,8 @@ OUT = pathlib.Path(args[0]) if args else (ROOT / "combined" if COMBINED else ROO
 OUT.mkdir(parents=True, exist_ok=True)
 IMG = "../" if COMBINED else ""  # shared images live in delmin.org-draft/
 SITE = "Deliverance Ministries"
-OLD = "https://delmin.org"          # current site; media still lives there until it is moved
-UP = OLD + "/wp-content/uploads/2017/09/"
+OLD = "https://delmin.org"          # old WordPress site (down since 2026-11-09)
+UP = IMG + "media/"                # testimony MP3s and handout PDFs, recovered from the Internet Archive
 
 LOGO = '''<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#c08a2b"/><path d="M20 7v26M12 15h16" stroke="#fff" stroke-width="3.4" stroke-linecap="round"/><path d="M8.5 28.5c3-2.2 5.2-2.2 7 0M24.5 28.5c1.8-2.2 4-2.2 7 0" stroke="#17394a" stroke-width="2" fill="none" stroke-linecap="round"/></svg>'''
 
