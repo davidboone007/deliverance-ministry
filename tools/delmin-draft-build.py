@@ -1,4 +1,4 @@
-# Builds the delmin.org revamp draft into the healing.place repo at /delmin.org-draft/.
+# Builds the delmin.org revamp draft into the Lambs to Lions site repo (lambs2lions.org) at /delmin.org-draft/.
 # Edit the page bodies here, then run from the repo root: python3 tools/delmin-draft-build.py
 # and again with --combined for the version styled after Lambs to Lions.
 import hashlib, re, pathlib, sys, html as H
@@ -61,10 +61,10 @@ def page(fname, title, desc, body, current):
     (OUT/fname).write_text(doc)
 
 # Forms post to Web3Forms, which emails each submission. The access key decides the inbox.
-# TEMPORARY: this is David's healing.place key, so messages reach David until a key is
+# TEMPORARY: this is David's Lambs to Lions (lambs2lions.org) key, so messages reach David until a key is
 # made for delmin.org@gmail.com at web3forms.com (then replace FORM_KEY).
 FORM_KEY = "d9fb3c2a-e827-4b5b-87e1-b6060e60867f"
-SITE_URL = "https://healing.place/delmin.org-draft/" + ("combined/" if COMBINED else "")
+SITE_URL = "https://lambs2lions.org/delmin.org-draft/" + ("combined/" if COMBINED else "")
 
 def form(title, fields, button="Send request"):
     def named(m):
