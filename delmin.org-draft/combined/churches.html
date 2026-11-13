@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="style.css?v=6404a21e">
 </head>
 <body>
-<div class="draftbar">Draft preview of a new delmin.org. Not the live site. Forms don't send yet, and <span class="tbc">highlighted</span> facts are still being confirmed. <a href="../churches.html">See the first draft</a></div>
+<div class="draftbar">Draft preview of a new delmin.org. Not the live site yet. Forms work, and <span class="tbc">highlighted</span> facts are still being confirmed. <a href="../churches.html">See the first draft</a></div>
 <header class="top"><div class="wrap">
 <a class="brand" href="index.html"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#a8790a"/><path d="M20 7v26M12 15h16" stroke="#fff" stroke-width="3.4" stroke-linecap="round"/><path d="M8.5 28.5c3-2.2 5.2-2.2 7 0M24.5 28.5c1.8-2.2 4-2.2 7 0" stroke="#1a2244" stroke-width="2" fill="none" stroke-linecap="round"/></svg><span>Deliverance Ministries</span></a>
 <nav><a href="get-help.html">Get help</a><a href="learn.html">Learn to minister</a><a href="churches.html" aria-current="page">For churches</a><a href="testimonies.html">Testimonies</a><a href="give.html" class="cta">Give</a></nav>
@@ -31,18 +31,23 @@
 <p class="muted">There is no fee. Love offerings are welcome but never required.</p>
 </div>
 <div>
-<form class="card form" onsubmit="return false">
+<form class="card form" action="https://api.web3forms.com/submit" method="POST" onsubmit="var n=this.elements.name.value||'someone';this.elements.subject.value='delmin.org: Invite a team from '+n+' ('+new Date().toLocaleString()+')';">
+<input type="hidden" name="access_key" value="d9fb3c2a-e827-4b5b-87e1-b6060e60867f">
+<input type="hidden" name="subject" value="delmin.org: Invite a team">
+<input type="hidden" name="from_name" value="delmin.org website">
+<input type="hidden" name="Form" value="Invite a team">
+<input type="hidden" name="redirect" value="https://healing.place/delmin.org-draft/combined/thanks.html">
+<input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
 <h3>Invite a team</h3>
 <div class="row2">
-<div><label>Your name</label><input type="text" autocomplete="name"></div>
-<div><label>Email</label><input type="email" autocomplete="email"></div>
+<div><label>Your name</label><input name="name" required type="text" autocomplete="name"></div>
+<div><label>Email</label><input name="email" required type="email" autocomplete="email"></div>
 </div>
 <div class="row2">
-<div><label>Phone</label><input type="tel" autocomplete="tel"></div>
-<div><label>City and state</label><input type="text"></div>
-</div><div><label>Church or group</label><input type="text"></div><div><label>What are you hoping for?</label><select><option>Teaching</option><option>Ministry sessions</option><option>Training our leaders</option><option>Not sure yet</option></select></div><div><label>Possible dates (optional)</label><input type="text"></div>
-<p class="note">Draft preview: this form doesn't send yet.</p>
-<div><button class="btn" type="button" disabled>Send invitation</button></div>
+<div><label>Phone</label><input name="Phone" type="tel" autocomplete="tel"></div>
+<div><label>City and state</label><input name="City and state" type="text"></div>
+</div><div><label>Church or group</label><input name="Church or group" type="text"></div><div><label>What are you hoping for?</label><select name="What are you hoping for?"><option>Teaching</option><option>Ministry sessions</option><option>Training our leaders</option><option>Not sure yet</option></select></div><div><label>Possible dates (optional)</label><input name="Possible dates (optional)" type="text"></div>
+<div><button class="btn" type="submit">Send invitation</button></div>
 </form>
 </div>
 </div></section>
