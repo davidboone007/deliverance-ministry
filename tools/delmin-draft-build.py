@@ -65,6 +65,10 @@ def page(fname, title, desc, body, current):
 # made for delmin.org@gmail.com at web3forms.com (then replace FORM_KEY).
 FORM_KEY = "d9fb3c2a-e827-4b5b-87e1-b6060e60867f"
 SITE_URL = "https://lambs2lions.org/delmin.org-draft/"
+# Form inbox (Google Sheet + Apps Script owned by delmin.org@gmail.com, set up 2026-11-26). Each submission
+# becomes a row in the sheet and the script emails delmin.org@gmail.com. If that post fails, the form falls
+# back to Web3Forms (action= below) so the message still arrives by email.
+SHEET_URL = "https://script.google.com/macros/s/AKfycbzOfph8SqL-3Y9Pk4ugDQLFWClMbWK76fbW9MI5Yf4Pdo9GuWHadG49qELy9HiuW9tc/exec"
 
 def form(title, fields, button="Send request"):
     def named(m):
@@ -73,7 +77,7 @@ def form(title, fields, button="Send request"):
         nm = {"Your name": "name", "Email": "email"}.get(label, label)  # Web3Forms uses "email" as the reply-to
         return f'<label>{m.group(1)}</label><{m.group(2)} name="{H.escape(nm)}"{req}'
     fields = re.sub(r'<label>(.*?)</label><(input|select|textarea)', named, fields)
-    return f'''<form class="card form" action="https://api.web3forms.com/submit" method="POST" onsubmit="var n=this.elements.name.value||'someone';this.elements.subject.value='delmin.org: {H.escape(title)} from '+n+' ('+new Date().toLocaleString()+')';">
+    return f'''<form class="card form" action="https://api.web3forms.com/submit" method="POST" onsubmit="event.preventDefault();var f=this,n=f.elements.name.value||'someone',b=f.querySelector('button');f.elements.subject.value='delmin.org: {H.escape(title.replace(chr(39), chr(92)+chr(39)))} from '+n+' ('+new Date().toLocaleString()+')';b.disabled=true;b.textContent='Sending…';fetch('{SHEET_URL}',{{method:'POST',mode:'no-cors',body:new URLSearchParams(new FormData(f))}}).then(function(){{location.href=f.elements.redirect.value}}).catch(function(){{f.submit()}});">
 <input type="hidden" name="access_key" value="{FORM_KEY}">
 <input type="hidden" name="subject" value="delmin.org: {H.escape(title)}">
 <input type="hidden" name="from_name" value="delmin.org website">
