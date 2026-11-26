@@ -33,7 +33,8 @@ def page(fname, title, desc, body, current):
 <meta name="robots" content="noindex, nofollow">
 <title>{title}</title>
 <meta name="description" content="{desc}">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="brand/favicon-32.png" type="image/png">
+<link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
 <link rel="stylesheet" href="style.css?v={hashlib.sha1(CSS.encode()).hexdigest()[:8]}">
 </head>
 <body>
@@ -98,12 +99,12 @@ def yt(vid, title, length=""):
     return f'''<figure class="video"><div class="frame"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/{vid}" title="{H.escape(title)}" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe></div><figcaption>{title} {meta}</figcaption></figure>'''
 
 ICON = {
- "near": '<svg viewBox="0 0 48 48"><path d="M24 44s14-13 14-24a14 14 0 0 0-28 0c0 11 14 24 14 24z" fill="#17394a"/><circle cx="24" cy="20" r="5.5" fill="#fff"/></svg>',
- "far": '<svg viewBox="0 0 48 48"><rect x="13" y="5" width="22" height="38" rx="4" fill="#17394a"/><rect x="16" y="10" width="16" height="25" rx="1.5" fill="#fff"/><circle cx="24" cy="39" r="1.8" fill="#fff"/><path d="M20 19l4 3-4 3z" fill="#c08a2b"/></svg>',
- "child": '<svg viewBox="0 0 48 48"><circle cx="17" cy="11" r="6" fill="#17394a"/><path d="M7 44V27a10 10 0 0 1 20 0v17z" fill="#17394a"/><circle cx="34" cy="21" r="4.5" fill="#c08a2b"/><path d="M27 44V33a7 7 0 0 1 14 0v11z" fill="#c08a2b"/></svg>',
- "learn": '<svg viewBox="0 0 48 48"><path d="M6 10c7-2 13-1 18 3 5-4 11-5 18-3v28c-7-2-13-1-18 3-5-4-11-5-18-3z" fill="#17394a"/><path d="M24 13v28" stroke="#fff" stroke-width="2"/></svg>',
- "church": '<svg viewBox="0 0 48 48"><path d="M24 4v10M20 8h8" stroke="#17394a" stroke-width="3" stroke-linecap="round"/><path d="M10 44V26l14-11 14 11v18z" fill="#17394a"/><path d="M20 44v-9a4 4 0 0 1 8 0v9z" fill="#c08a2b"/></svg>',
- "give": '<svg viewBox="0 0 48 48"><path d="M24 42S6 31 6 18a9 9 0 0 1 18-3 9 9 0 0 1 18 3c0 13-18 24-18 24z" fill="#c08a2b"/></svg>',
+ "near": '<svg viewBox="0 0 48 48"><path d="M24 44s14-13 14-24a14 14 0 0 0-28 0c0 11 14 24 14 24z" fill="#5f0423"/><circle cx="24" cy="20" r="5.5" fill="#fff"/></svg>',
+ "far": '<svg viewBox="0 0 48 48"><rect x="13" y="5" width="22" height="38" rx="4" fill="#5f0423"/><rect x="16" y="10" width="16" height="25" rx="1.5" fill="#fff"/><circle cx="24" cy="39" r="1.8" fill="#fff"/><path d="M20 19l4 3-4 3z" fill="#00622c"/></svg>',
+ "child": '<svg viewBox="0 0 48 48"><circle cx="17" cy="11" r="6" fill="#5f0423"/><path d="M7 44V27a10 10 0 0 1 20 0v17z" fill="#5f0423"/><circle cx="34" cy="21" r="4.5" fill="#00622c"/><path d="M27 44V33a7 7 0 0 1 14 0v11z" fill="#00622c"/></svg>',
+ "learn": '<svg viewBox="0 0 48 48"><path d="M6 10c7-2 13-1 18 3 5-4 11-5 18-3v28c-7-2-13-1-18 3-5-4-11-5-18-3z" fill="#5f0423"/><path d="M24 13v28" stroke="#fff" stroke-width="2"/></svg>',
+ "church": '<svg viewBox="0 0 48 48"><path d="M24 4v10M20 8h8" stroke="#5f0423" stroke-width="3" stroke-linecap="round"/><path d="M10 44V26l14-11 14 11v18z" fill="#5f0423"/><path d="M20 44v-9a4 4 0 0 1 8 0v9z" fill="#00622c"/></svg>',
+ "give": '<svg viewBox="0 0 48 48"><path d="M24 42S6 31 6 18a9 9 0 0 1 18-3 9 9 0 0 1 18 3c0 13-18 24-18 24z" fill="#00622c"/></svg>',
 }
 
 def persona(icon, href, title, text, go):
@@ -587,10 +588,10 @@ HOME2 = f'''
 </div></section>
 '''
 
-CSS2 = '''/* Deliverance Ministries draft, combined with the Lambs to Lions look */
-:root{--ink:#1f2433;--muted:#596178;--line:#d9dbe3;--paper:#fbfaf7;--card:#fff;
---navy:#24305e;--navy-soft:#e9ecf6;--gold:#a8790a;--gold-soft:#fbf3df;--gold-line:#ecd9a6;
---wine:#7a2340;--wine-soft:#f7e9ee;--sage:#2f6b55;--sage-soft:#e6f2ec;
+CSS2 = '''/* Deliverance Ministries draft. Palette from the dove logo: burgundy #5f0423, olive-leaf green #00622c */
+:root{--ink:#2b1a20;--muted:#6e5a60;--line:#e6dadd;--paper:#fbf8f5;--card:#fff;
+--navy:#5f0423;--navy-soft:#f5e8ec;--gold:#00622c;--gold-soft:#e8f3ec;--gold-line:#b7d6c2;
+--wine:#8c1c3c;--wine-soft:#f7e9ee;--sage:#00622c;--sage-soft:#e6f2ec;
 --serif:Georgia,"Times New Roman",serif;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -613,23 +614,23 @@ p{margin:0 0 1rem}
 header.top{background:var(--navy);position:sticky;top:0;z-index:5}
 header.top .wrap{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px 16px;min-height:60px;padding-top:6px;padding-bottom:6px}
 .brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-family:var(--sans);font-weight:700;font-size:1.05rem;letter-spacing:.02em}
-.brand svg{width:34px;height:34px;flex:none}
+.brand svg,.brand img{width:40px;height:40px;flex:none}
 nav{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center}
-nav a{color:#dfe4f5;text-decoration:none;font-size:.92rem;white-space:nowrap}
+nav a{color:#f3dfe5;text-decoration:none;font-size:.92rem;white-space:nowrap}
 nav a:hover,nav a[aria-current]{color:#fff;text-decoration:underline;text-underline-offset:4px}
 nav a.cta{background:var(--gold);color:#fff;padding:7px 14px;border-radius:999px;text-decoration:none}
-.hero{background:linear-gradient(160deg,var(--navy) 0%,#33427e 100%);color:#fff;padding:48px 0}
+.hero{background:linear-gradient(160deg,var(--navy) 0%,#7a1233 100%);color:#fff;padding:48px 0}
 .hero h1{color:#fff;font-size:clamp(2.2rem,6vw,3.3rem);line-height:1.08;margin:0 0 1rem}
 .hero.split .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:center}
 .hero.split .hero-img{order:2;margin:0}
 .hero.split .hero-img img{display:block;width:100%;height:auto;border-radius:14px;box-shadow:0 18px 40px rgba(0,0,0,.35)}
 .hero .verses{margin:0 0 1.6rem;border-left:3px solid var(--gold);padding-left:16px}
-.hero .verses p{font-style:italic;font-size:1.02rem;line-height:1.5;color:#eef1fb;margin:0 0 .7rem}
-.hero .verses .ref{color:#c4cbe6}
-.page-hero{background:var(--navy);color:#dfe4f5;padding:44px 0 36px;text-align:center}
+.hero .verses p{font-style:italic;font-size:1.02rem;line-height:1.5;color:#f8eef1;margin:0 0 .7rem}
+.hero .verses .ref{color:#e4c4ce}
+.page-hero{background:var(--navy);color:#f3dfe5;padding:44px 0 36px;text-align:center}
 .page-hero h1{color:#fff;margin:0 0 .6rem;font-size:clamp(1.9rem,6vw,2.7rem)}
 .page-hero p{margin:.4rem auto 0;max-width:680px}
-.page-hero .ref{color:#c4cbe6}
+.page-hero .ref{color:#e4c4ce}
 .page-hero .lead{font-style:italic;font-size:1.3rem;color:#fff}
 section{padding:44px 0}
 section.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -643,11 +644,11 @@ section.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px s
 .personas{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:1.2rem}
 .personas.three{margin-bottom:24px}
 .persona{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-top:4px solid var(--navy);border-radius:10px;padding:18px 20px;text-decoration:none;color:var(--ink);transition:box-shadow .15s,transform .15s}
-.persona:hover{box-shadow:0 6px 20px rgba(36,48,94,.14);transform:translateY(-2px)}
+.persona:hover{box-shadow:0 6px 20px rgba(95,4,35,.14);transform:translateY(-2px)}
 .persona svg{width:44px;height:44px;margin-bottom:10px}
-.persona svg [fill="#17394a"]{fill:var(--navy)}
-.persona svg [fill="#c08a2b"]{fill:var(--gold)}
-.persona svg [stroke="#17394a"]{stroke:var(--navy)}
+.persona svg [fill="#5f0423"]{fill:var(--navy)}
+.persona svg [fill="#00622c"]{fill:var(--gold)}
+.persona svg [stroke="#5f0423"]{stroke:var(--navy)}
 .persona p{color:var(--muted);flex:1;font-size:.98rem}
 .go{color:var(--gold);font-weight:700;font-size:.95rem}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
@@ -679,7 +680,7 @@ ol.strip li b{display:block;color:var(--navy);font-size:.95rem;margin-bottom:2px
 .stepcard .n{width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;font-family:var(--sans);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
 .stepcard .form{margin-top:10px;background:var(--paper)}
 .video{margin:8px 0 12px}
-.frame{position:relative;padding-top:56.25%;border-radius:10px;overflow:hidden;background:#1a2244}
+.frame{position:relative;padding-top:56.25%;border-radius:10px;overflow:hidden;background:#3f0217}
 .frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 figcaption{font-size:.9rem;font-weight:600;color:var(--navy);margin-top:6px}
 .len{color:var(--muted);font-weight:400;margin-left:6px}
@@ -705,12 +706,12 @@ figcaption{font-size:.9rem;font-weight:600;color:var(--navy);margin-top:6px}
 .note{font-size:.85rem;color:#5c4a00;background:#fff1a8;border-radius:8px;padding:6px 10px}
 .cta-band{background:var(--navy);color:#fff;text-align:center;padding:48px 0}
 .cta-band h2{color:#fff}
-.cta-band p{color:#dfe4f5;max-width:620px;margin:0 auto 1.3rem}
-.cta-band .ref{color:#c4cbe6}
-footer{background:#1a2244;color:#b9c1dc;padding:30px 0 20px;font-size:.88rem}
-footer a{color:#dfe4f5}footer b{color:#fff}
+.cta-band p{color:#f3dfe5;max-width:620px;margin:0 auto 1.3rem}
+.cta-band .ref{color:#e4c4ce}
+footer{background:#3f0217;color:#dbb6c1;padding:30px 0 20px;font-size:.88rem}
+footer a{color:#f3dfe5}footer b{color:#fff}
 .fgrid{display:grid;grid-template-columns:2fr 1fr 1.3fr;gap:20px}
-footer .ref{color:#9aa3c4}
+footer .ref{color:#c79aa8}
 @media (max-width:820px){
  .hero.split{padding:0 0 40px;text-align:center}
  .hero.split .wrap{grid-template-columns:1fr;gap:22px;padding:0}
@@ -727,9 +728,8 @@ footer .ref{color:#9aa3c4}
 if COMBINED:
     HOME = HOME2
     CSS = CSS2
-    LOGO = LOGO.replace('#c08a2b', '#a8790a').replace('#17394a', '#1a2244')
+    LOGO = '<img src="brand/dove-badge-96.png" width="40" height="40" alt="">'
 
-FAV = LOGO.replace(' aria-hidden="true"', ' xmlns="http://www.w3.org/2000/svg"')
 
 page("index.html", "Deliverance Ministries · Freedom and healing in Jesus Christ", "Free deliverance and healing ministry in Oklahoma City and by phone, Zoom or FaceTime.", HOME, "index.html")
 page("get-help.html", "Get help · Deliverance Ministries", "Free, personal ministry in person in Oklahoma City or from anywhere.", GETHELP, "get-help.html")
@@ -753,5 +753,4 @@ page("thanks.html", "Thank you · Deliverance Ministries", "Your message was sen
 ''', "")
 page("contact.html", "Contact · Deliverance Ministries", "Contact Deliverance Ministries.", CONTACT, "contact.html")
 (OUT/"style.css").write_text(CSS)
-(OUT/"favicon.svg").write_text(FAV)
 print("built", sorted(p.name for p in OUT.iterdir()))
