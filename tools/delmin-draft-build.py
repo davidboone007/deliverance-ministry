@@ -299,15 +299,15 @@ LEARN = f'''
 <div class="card soft"><h3>Free handouts and downloads</h3>
 <p>Free to download, print and share.</p>
 <ul class="dl">
-<li><a href="{IMG}downloads/introduction-to-deliverance.pdf">Introduction to Deliverance</a> <span class="muted">2 pages · what deliverance is</span></li>
-<li><a href="{IMG}downloads/who-i-am-in-christ.pdf">Who I Am in Christ</a> <span class="muted">1 page · say five each day</span></li>
-<li><a href="{IMG}downloads/problem-checklist.pdf">Problem Checklist</a> <span class="muted">2 pages · fill out before your session</span></li>
-<li><a href="{IMG}downloads/follow-up-for-recipients.pdf">You Don&rsquo;t Walk This Alone</a> <span class="muted">3 pages · after your session</span></li>
-<li><a href="{IMG}downloads/follow-up-for-ministers.pdf">Follow-Up for Ministers</a> <span class="muted">4 pages · staying in touch</span></li>
-<li><a href="{IMG}downloads/door-closing-prayer.pdf">Door-Closing Prayer (at a glance)</a> <span class="muted">2 pages · minister&rsquo;s guide to lead the prayer</span></li>
-<li><a href="{IMG}downloads/the-importance-of-forgiveness.pdf">The Importance of Forgiveness</a> <span class="muted">19 pages · Scripture study</span></li>
+<li><a href="{IMG}downloads/introduction-to-deliverance.pdf">Introduction to Deliverance</a> <a class="es" lang="es" href="{IMG}downloads/es/introduccion-a-la-liberacion.pdf">En español</a> <span class="muted">2 pages · what deliverance is</span></li>
+<li><a href="{IMG}downloads/who-i-am-in-christ.pdf">Who I Am in Christ</a> <a class="es" lang="es" href="{IMG}downloads/es/quien-soy-en-cristo.pdf">En español</a> <span class="muted">1 page · say five each day</span></li>
+<li><a href="{IMG}downloads/problem-checklist.pdf">Problem Checklist</a> <a class="es" lang="es" href="{IMG}downloads/es/lista-de-problemas.pdf">En español</a> <span class="muted">2 pages · fill out before your session</span></li>
+<li><a href="{IMG}downloads/follow-up-for-recipients.pdf">You Don&rsquo;t Walk This Alone</a> <a class="es" lang="es" href="{IMG}downloads/es/no-camina-solo-en-esto.pdf">En español</a> <span class="muted">3 pages · after your session</span></li>
+<li><a href="{IMG}downloads/follow-up-for-ministers.pdf">Follow-Up for Ministers</a> <a class="es" lang="es" href="{IMG}downloads/es/seguimiento-para-ministros.pdf">En español</a> <span class="muted">4 pages · staying in touch</span></li>
+<li><a href="{IMG}downloads/door-closing-prayer.pdf">Door-Closing Prayer (at a glance)</a> <a class="es" lang="es" href="{IMG}downloads/es/oracion-para-cerrar-puertas.pdf">En español</a> <span class="muted">2 pages · minister&rsquo;s guide to lead the prayer</span></li>
+<li><a href="{IMG}downloads/the-importance-of-forgiveness.pdf">The Importance of Forgiveness</a> <a class="es" lang="es" href="{IMG}downloads/es/la-importancia-del-perdon.pdf">En español</a> <span class="muted">19 pages · Scripture study</span></li>
 </ul>
-<p class="muted">More prayers, renunciations, the Spanish problem list, and the CD and DVD training sets are being converted. {tbc("coming soon")}</p></div>
+<p class="muted">More prayers, renunciations, and the CD and DVD training sets are being converted. {tbc("coming soon")}</p></div>
 <div class="card soft book"><div><h3>Founder Everett Cox&rsquo;s book</h3>
 <p><i>Doing the Supernatural Works of Jesus</i>, the ministry's training manual.</p>
 <p><a class="btn ghost" href="https://a.co/d/03yBlejH" target="_blank" rel="noopener">Get the book on Amazon</a></p></div>
@@ -502,7 +502,7 @@ figcaption{font-size:.9rem;font-weight:600;color:var(--teal);margin-top:6px}
 .path div{background:var(--teal);color:#fff;border-radius:10px;padding:12px;font-weight:600;font-size:.92rem}
 .path b{display:inline-flex;width:24px;height:24px;border-radius:50%;background:var(--gold);align-items:center;justify-content:center;margin-right:6px}
 .offer{border-left:4px solid var(--gold);padding:2px 0 2px 14px;margin-bottom:14px}
-.dl{list-style:none;padding:0;margin:8px 0}.dl li{padding:7px 0;border-bottom:1px solid rgba(0,0,0,.08)}.dl a{font-weight:700}.dl .muted{display:block;font-size:.88em}
+.dl{list-style:none;padding:0;margin:8px 0}.dl li{padding:7px 0;border-bottom:1px solid rgba(0,0,0,.08)}.dl a{font-weight:700}.dl .muted{display:block;font-size:.88em}.dl a.es{font-weight:600;font-size:.82em;margin-left:8px;padding:1px 8px;border:1px solid currentColor;border-radius:10px;white-space:nowrap}
 .story p{font-style:italic}.story .sig{font-style:normal;font-weight:700;margin:0}
 .book img{display:block;width:100%;height:auto;margin-top:14px;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,.25)}
 .offer p{margin:0}
@@ -691,7 +691,7 @@ figcaption{font-size:.9rem;font-weight:600;color:var(--navy);margin-top:6px}
 .path div{background:var(--navy);color:#fff;border-radius:10px;padding:12px;font-family:var(--sans);font-weight:600;font-size:.92rem}
 .path b{display:inline-flex;width:24px;height:24px;border-radius:50%;background:var(--gold);color:var(--navy);align-items:center;justify-content:center;margin-right:6px}
 .offer{border-left:4px solid var(--gold);padding:2px 0 2px 14px;margin-bottom:14px}
-.dl{list-style:none;padding:0;margin:8px 0}.dl li{padding:7px 0;border-bottom:1px solid rgba(0,0,0,.08)}.dl a{font-weight:700}.dl .muted{display:block;font-size:.88em}
+.dl{list-style:none;padding:0;margin:8px 0}.dl li{padding:7px 0;border-bottom:1px solid rgba(0,0,0,.08)}.dl a{font-weight:700}.dl .muted{display:block;font-size:.88em}.dl a.es{font-weight:600;font-size:.82em;margin-left:8px;padding:1px 8px;border:1px solid currentColor;border-radius:10px;white-space:nowrap}
 .story p{font-style:italic}.story .sig{font-style:normal;font-weight:700;margin:0}
 .book img{display:block;width:100%;height:auto;margin-top:14px;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,.25)}
 .offer p{margin:0}
