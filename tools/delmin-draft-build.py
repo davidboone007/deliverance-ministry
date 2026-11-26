@@ -3,12 +3,12 @@
 # and again with --combined for the version styled after Lambs to Lions.
 import hashlib, re, pathlib, sys, html as H
 # --combined builds the version that blends in the Lambs to Lions look, into delmin.org-draft/combined/
-COMBINED = "--combined" in sys.argv
+COMBINED = True   # only the combined style is kept (David, 2026-11-26)
 args = [x for x in sys.argv[1:] if not x.startswith("--")]
 ROOT = pathlib.Path(__file__).resolve().parent.parent / "delmin.org-draft"
-OUT = pathlib.Path(args[0]) if args else (ROOT / "combined" if COMBINED else ROOT)
+OUT = pathlib.Path(args[0]) if args else ROOT
 OUT.mkdir(parents=True, exist_ok=True)
-IMG = "../" if COMBINED else ""  # shared images live in delmin.org-draft/
+IMG = ""
 SITE = "Deliverance Ministries"
 OLD = "https://delmin.org"          # old WordPress site (down since 2026-11-09)
 UP = IMG + "media/"                # testimony MP3s and handout PDFs, recovered from the Internet Archive
@@ -19,7 +19,6 @@ def tbc(t="to confirm"):
     return f'<span class="tbc" title="Draft: fact still to confirm">{t}</span>'
 
 def page(fname, title, desc, body, current):
-    COMPARE = (f' <a href="../{fname}">See the first draft</a>' if COMBINED else f' <a href="combined/{fname}">See the combined style</a>')
     links = [("get-help.html","Get help"),("learn.html","Learn to minister"),("churches.html","For churches"),("testimonies.html","Testimonies"),("give.html","Give")]
     def a(h,t):
         cur = ' aria-current="page"' if h==current else ''
@@ -38,7 +37,7 @@ def page(fname, title, desc, body, current):
 <link rel="stylesheet" href="style.css?v={hashlib.sha1(CSS.encode()).hexdigest()[:8]}">
 </head>
 <body>
-<div class="draftbar">Draft preview of a new delmin.org. Not the live site yet. Forms work, and <span class="tbc">highlighted</span> facts are still being confirmed.{COMPARE}</div>
+<div class="draftbar">Draft preview of a new delmin.org. Not the live site yet. Forms work, and <span class="tbc">highlighted</span> facts are still being confirmed.</div>
 <header class="top"><div class="wrap">
 <a class="brand" href="index.html">{LOGO}<span>{SITE}</span></a>
 <nav>{nav}</nav>
@@ -64,7 +63,7 @@ def page(fname, title, desc, body, current):
 # TEMPORARY: this is David's Lambs to Lions (lambs2lions.org) key, so messages reach David until a key is
 # made for delmin.org@gmail.com at web3forms.com (then replace FORM_KEY).
 FORM_KEY = "d9fb3c2a-e827-4b5b-87e1-b6060e60867f"
-SITE_URL = "https://lambs2lions.org/delmin.org-draft/" + ("combined/" if COMBINED else "")
+SITE_URL = "https://lambs2lions.org/delmin.org-draft/"
 
 def form(title, fields, button="Send request"):
     def named(m):
@@ -111,8 +110,8 @@ def persona(icon, href, title, text, go):
     return f'<a class="persona" href="{href}">{ICON[icon]}<h3>{title}</h3><p>{text}</p><span class="go">{go} →</span></a>'
 
 PERSONAS = "".join([
- persona("near","help-nearby.html","I need help, and I'm near Oklahoma City","Come to a Monday night meeting for free, one-on-one ministry.","Monday nights"),
- persona("far","help-anywhere.html","I need help, but I'm far away","Start a step-by-step guide at home, then meet a minister by phone, Zoom or FaceTime.","Help from anywhere"),
+ persona("near","help-nearby.html","I'd like ministry in person","Come to a Monday night meeting in Oklahoma City for free, one-on-one ministry. Whether you live nearby or travel to come, you're welcome.","Monday nights"),
+ persona("far","help-anywhere.html","I need help, but can't come in person","Start a step-by-step guide at home, then meet a minister by phone, Zoom or FaceTime.","Help from anywhere"),
  persona("child","children.html","I'm a parent seeking help for my child","How ministry for children works, and how to request an appointment.","Help for children"),
  persona("learn","learn.html","I want to learn to minister","Free training videos, handouts and a place on the Monday team.","Training"),
  persona("church","churches.html","I lead a church or group","Invite a team to teach, minister and train your people.","Invite us"),
@@ -142,6 +141,7 @@ HOME = f'''
 <li><b>7:30 pm</b> Personal ministry until about {tbc("10:30 pm")}</li>
 </ol>
 <p>9201 N. Rockwell, Oklahoma City, OK 73132<br><span class="muted">West side of Rockwell, between NW Expressway and Britton Rd.</span></p>
+<p>Everyone is welcome, whether you live nearby or travel to come.</p>
 <a class="btn" href="help-nearby.html">Plan your visit</a>
 </div>
 <div class="card quote">
@@ -172,8 +172,8 @@ GETHELP = f'''
 </div></section>
 <section><div class="wrap">
 <div class="personas three">
-{persona("near","help-nearby.html","Near Oklahoma City","Come to a Monday night meeting.","Monday nights")}
-{persona("far","help-anywhere.html","Anywhere else","A guide at home, then phone, Zoom or FaceTime.","Help from anywhere")}
+{persona("near","help-nearby.html","In person","Come to a Monday night meeting in Oklahoma City. Visitors from out of town are welcome.","Monday nights")}
+{persona("far","help-anywhere.html","From anywhere","A guide at home, then phone, Zoom or FaceTime.","Help from anywhere")}
 {persona("child","children.html","For your child","Parents first, then an appointment.","Help for children")}
 </div>
 <div class="card soft">
@@ -194,7 +194,7 @@ GETHELP = f'''
 NEARBY = f'''
 <section class="page-hero"><div class="wrap">
 <h1>Monday nights in Oklahoma City</h1>
-<p>Free, one-on-one ministry with trained ministers, every Monday except major holidays {tbc("which ones?")}.</p>
+<p>Free, one-on-one ministry with trained ministers, every Monday except major holidays {tbc("which ones?")}. Whether you live nearby or are willing to travel, you are welcome.</p>
 </div></section>
 <section><div class="wrap two">
 <div>
@@ -525,7 +525,7 @@ footer .ref{color:#a9c4ca}
 # ---------------- COMBINED (Lambs to Lions look) ----------------
 HOME2 = f'''
 <section class="hero split"><div class="wrap">
-<figure class="hero-img"><img src="../../freedom.jpg" srcset="../../freedom-700.jpg 700w, ../../freedom.jpg 1200w" sizes="(max-width:820px) 100vw, 460px" width="1200" height="1200" alt="A man kneels with arms raised toward a cross as his chains break."></figure>
+<figure class="hero-img"><img src="../freedom.jpg" srcset="../freedom-700.jpg 700w, ../freedom.jpg 1200w" sizes="(max-width:820px) 100vw, 460px" width="1200" height="1200" alt="A man kneels with arms raised toward a cross as his chains break."></figure>
 <div class="hero-text">
 <h1>Freedom and healing in Jesus Christ</h1>
 <div class="verses">
@@ -568,6 +568,7 @@ HOME2 = f'''
 <li><b>7:30 pm</b> Personal ministry until about {tbc("10:30 pm")}</li>
 </ol>
 <p>9201 N. Rockwell, Oklahoma City, OK 73132<br><span class="muted">West side of Rockwell, between NW Expressway and Britton Rd.</span></p>
+<p>Everyone is welcome, whether you live nearby or travel to come.</p>
 <a class="btn" href="help-nearby.html">Plan your visit</a>
 </div>
 <div>
@@ -731,7 +732,7 @@ if COMBINED:
 FAV = LOGO.replace(' aria-hidden="true"', ' xmlns="http://www.w3.org/2000/svg"')
 
 page("index.html", "Deliverance Ministries · Freedom and healing in Jesus Christ", "Free deliverance and healing ministry in Oklahoma City and by phone, Zoom or FaceTime.", HOME, "index.html")
-page("get-help.html", "Get help · Deliverance Ministries", "Free, personal ministry near Oklahoma City or from anywhere.", GETHELP, "get-help.html")
+page("get-help.html", "Get help · Deliverance Ministries", "Free, personal ministry in person in Oklahoma City or from anywhere.", GETHELP, "get-help.html")
 page("help-nearby.html", "Monday nights · Deliverance Ministries", "Free one-on-one ministry every Monday night in Oklahoma City.", NEARBY, "get-help.html")
 page("help-anywhere.html", "Help from anywhere · Deliverance Ministries", "A free step-by-step guide at home, then ministry by phone, Zoom or FaceTime.", ANYWHERE, "get-help.html")
 page("children.html", "Help for children · Deliverance Ministries", "How ministry for children works and how to request an appointment.", CHILDREN, "get-help.html")
