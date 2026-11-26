@@ -227,7 +227,7 @@ NEARBY = f'''
 <p>9201 N. Rockwell, Oklahoma City, OK 73132<br><span class="muted">West side of Rockwell, between NW Expressway and Britton Rd.</span><br><a href="https://maps.google.com/?q=9201+N+Rockwell+Ave,+Oklahoma+City,+OK+73132">Open in Maps</a></p>
 </div>
 <div>
-{form("Reserve a Monday", NAME_EMAIL + LANG + '<div><label>Which Monday?</label><input type="date"></div><div><label>Anything we should know? (optional)</label><textarea></textarea></div>', "Reserve")}
+{form("Reserve a Monday", NAME_EMAIL + LANG + '<div><label>Which Monday?</label><select id="monday-pick"><option>Next available Monday</option></select></div><script>(function(){var s=document.getElementById(\'monday-pick\'),d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()+((8-d.getDay())%7));for(var i=0;i<12;i++){var o=document.createElement(\'option\');o.textContent=d.toLocaleDateString(\'en-US\',{weekday:\'long\',month:\'long\',day:\'numeric\',year:\'numeric\'});s.appendChild(o);d.setDate(d.getDate()+7)}})();</script><div><label>Anything we should know? (optional)</label><textarea></textarea></div>', "Reserve")}
 <div class="card soft"><h3>Topics we often see</h3><p class="muted">Including but not limited to:</p>
 <p>fear and anxiety · depression · addictions · eating disorders · sickness and infirmity · witchcraft and the occult · multiple personalities · troubled homes · emotional wounds</p></div>
 </div>
