@@ -85,13 +85,15 @@ def form(title, fields, button="Send request"):
 <div><button class="btn" type="submit">{button}</button></div>
 </form>'''
 
+LANG = '<div class="row2"><div><label>Language for ministry</label><select><option>English</option><option>Spanish</option><option>Other (please say which)</option></select></div><div><label>Other language (optional)</label><input type="text"></div></div><p class="small muted">Our ministers mainly speak English. Another language depends on whether a minister who speaks it is available.</p>'
+
 NAME_EMAIL = '''<div class="row2">
 <div><label>Your name</label><input type="text" autocomplete="name"></div>
 <div><label>Email</label><input type="email" autocomplete="email"></div>
 </div>
 <div class="row2">
 <div><label>Phone</label><input type="tel" autocomplete="tel"></div>
-<div><label>City and state</label><input type="text"></div>
+<div><label>City, state or country</label><input type="text"></div>
 </div>'''
 
 def yt(vid, title, length=""):
@@ -139,7 +141,7 @@ HOME = f'''
 <ol class="timeline">
 <li><b>5:30 pm</b> Introduction and teaching</li>
 <li><b>6:30 pm</b> Door-closing prayer, together <span class="pill">required</span></li>
-<li><b>7:30 pm</b> Personal ministry until about {tbc("10:30 pm")}</li>
+<li><b>7:30 pm</b> Personal ministry, ending by 10:30 pm at the latest</li>
 </ol>
 <p>9201 N. Rockwell, Oklahoma City, OK 73132<br><span class="muted">West side of Rockwell, between NW Expressway and Britton Rd.</span></p>
 <p>Everyone is welcome, whether you live nearby or travel to come.</p>
@@ -195,7 +197,7 @@ GETHELP = f'''
 NEARBY = f'''
 <section class="page-hero"><div class="wrap">
 <h1>Monday nights in Oklahoma City</h1>
-<p>Free, one-on-one ministry with trained ministers, every Monday except major holidays {tbc("which ones?")}. Whether you live nearby or are willing to travel, you are welcome.</p>
+<p>Free, one-on-one ministry with trained ministers, every Monday except major holidays. Whether you live nearby or are willing to travel, you are welcome.</p>
 </div></section>
 <section><div class="wrap two">
 <div>
@@ -203,7 +205,7 @@ NEARBY = f'''
 <ol class="timeline">
 <li><b>5:30 pm</b> Introduction: Jesus' works today, how evil spirits gain access, your authority in Christ, and staying free.</li>
 <li><b>6:30 pm</b> Door-closing prayer together. <span class="pill">required before personal ministry</span></li>
-<li><b>7:30 pm</b> Personal ministry with a small team, until about {tbc("10:30 pm")}.</li>
+<li><b>7:30 pm</b> Personal ministry with a small team. Sessions end by 10:30 pm at the latest.</li>
 </ol>
 <h2>Before you come</h2>
 <ul class="check">
@@ -216,7 +218,7 @@ NEARBY = f'''
 <p>9201 N. Rockwell, Oklahoma City, OK 73132<br><span class="muted">West side of Rockwell, between NW Expressway and Britton Rd.</span><br><a href="https://maps.google.com/?q=9201+N+Rockwell+Ave,+Oklahoma+City,+OK+73132">Open in Maps</a></p>
 </div>
 <div>
-{form("Reserve a Monday", NAME_EMAIL + '<div><label>Which Monday?</label><input type="date"></div><div><label>Anything we should know? (optional)</label><textarea></textarea></div>', "Reserve")}
+{form("Reserve a Monday", NAME_EMAIL + LANG + '<div><label>Which Monday?</label><input type="date"></div><div><label>Anything we should know? (optional)</label><textarea></textarea></div>', "Reserve")}
 <div class="card soft"><h3>Topics we often see</h3><p class="muted">Including but not limited to:</p>
 <p>fear and anxiety · depression · addictions · eating disorders · sickness and infirmity · witchcraft and the occult · multiple personalities · troubled homes · emotional wounds</p></div>
 </div>
@@ -228,7 +230,7 @@ ANYWHERE = f'''
 <section class="page-hero"><div class="wrap">
 <h1>Help from anywhere</h1>
 <p>Can't come on a Monday? Prepare at home with this guide, then meet a trained minister by phone, Zoom or FaceTime. It's free. Steps 1 to 4 take about 3 to 4 hours, and you can pause between them.</p>
-<p class="small">Currently offered in the USA {tbc("still USA only?")}.</p>
+<p class="small">Open to people anywhere in the world. Our ministers mainly speak English. If you would prefer another language, tell us which one on the request form, and we will look for a minister who speaks it.</p>
 </div></section>
 <section><div class="wrap">
 <div class="progress"><span>1 Problem list</span><span>2 Watch</span><span>3 Close the doors</span><span>4 Request a minister</span><span>5 Deliverance</span><span>6 Holy Spirit</span></div>
@@ -237,7 +239,7 @@ ANYWHERE = f'''
 <div class="stepcard"><div class="n">2</div><div><h3>Learn how freedom and healing work</h3>{yt("SiOOB29SQLI","What is deliverance ministry?","1 hr 10 min")}</div></div>
 <div class="stepcard"><div class="n">3</div><div><h3>Pray the door-closing prayer <span class="pill">required</span></h3><p>Print the <a href="{UP}brown-handout-4-11.pdf">door-closing prayer handout</a> and pray it aloud as the video leads you. The video also covers how to stay free.</p>{yt("9CH5Lc2y9bQ","The door-closing prayer","31 min")}</div></div>
 <div class="stepcard"><div class="n">4</div><div><h3>Request a minister</h3><p>Ask for a free session with a trained minister by phone, Zoom or FaceTime.</p>
-{form("Request a session", NAME_EMAIL + '<div><label>How would you like to meet?</label><select><option>Phone call</option><option>Zoom</option><option>FaceTime</option></select></div><div><label>I have finished steps 1 to 3</label><select><option>Yes</option><option>Not yet</option></select></div><div><label>Problems you circled (or attach later)</label><textarea></textarea></div>', "Request a session")}</div></div>
+{form("Request a session", NAME_EMAIL + LANG + '<div><label>How would you like to meet?</label><select><option>Phone call</option><option>Zoom</option><option>FaceTime</option></select></div><div><label>I have finished steps 1 to 3</label><select><option>Yes</option><option>Not yet</option></select></div><div><label>Problems you circled (or attach later)</label><textarea></textarea></div>', "Request a session")}</div></div>
 <div class="stepcard"><div class="n">5</div><div><h3>Individual or group deliverance</h3><p>Only after steps 1 to 3. Have your Problem List ready and pause the video whenever you need to.</p>{yt("UJSWP5yNdhY","Individual or group deliverance","1 hr 52 min")}</div></div>
 <div class="stepcard"><div class="n">6</div><div><h3>Be filled with the Holy Spirit</h3><p><a href="{UP}the-Baptism-of-the-Holy-Spirit-1.pdf">Handout</a> for this video.</p>{yt("vFJNON4Ld20","The baptism of the Holy Spirit","10 min")}</div></div>
 </div></section>
@@ -254,7 +256,7 @@ CHILDREN = f'''
 <h2>How it works</h2>
 <ol class="steps">
 <li><b>Parents first.</b> A parent or guardian receives ministry before their child does, on a Monday night or <a href="help-anywhere.html">from anywhere</a>.</li>
-<li><b>Request an appointment</b> for your child, ages {tbc("14 and younger")}, within a few weeks of your own ministry {tbc("timing?")}.</li>
+<li><b>Request an appointment</b> for your child, ages 14 and younger, within 1 to 4 weeks after your own ministry.</li>
 <li><b>Minister together.</b> A parent stays with their child throughout.</li>
 </ol>
 <p class="muted">There is no childcare on Monday nights, so please don't bring children to the general meeting.</p>
@@ -262,7 +264,7 @@ CHILDREN = f'''
 {yt("sIxPRqK1f8M","Ministering to children")}
 </div>
 <div>
-{form("Request an appointment for your child", NAME_EMAIL + '<div class="row2"><div><label>Child\'s age</label><input type="number" min="0" max="17"></div><div><label>When did you receive ministry?</label><input type="date"></div></div><div><label>Anything we should know? (optional)</label><textarea></textarea></div>', "Request appointment")}
+{form("Request an appointment for your child", NAME_EMAIL + LANG + '<div class="row2"><div><label>Child\'s age</label><input type="number" min="0" max="14"></div><div><label>When did you receive ministry?</label><input type="date"></div></div><div><label>Anything we should know? (optional)</label><textarea></textarea></div>', "Request appointment")}
 </div>
 </div></section>
 '''
@@ -417,7 +419,7 @@ CONTACT = f'''
 <section><div class="wrap two">
 <div>
 <p><b>Phone</b><br>(405) 842-5509</p>
-<p><b>Email</b><br>{tbc("ministry address")}</p>
+<p><b>Email</b><br><a href="mailto:delmin.org@gmail.com">delmin.org@gmail.com</a></p>
 <p><b>Mail</b><br>Deliverance Ministries Inc<br>2828 NW 57th, Ste. 305<br>Oklahoma City, OK 73112</p>
 <p><b>Monday nights</b><br>9201 N. Rockwell, Oklahoma City, OK 73132</p>
 </div>
@@ -566,7 +568,7 @@ HOME2 = f'''
 <ol class="timeline">
 <li><b>5:30 pm</b> Introduction and teaching</li>
 <li><b>6:30 pm</b> Door-closing prayer, together <span class="pill">required</span></li>
-<li><b>7:30 pm</b> Personal ministry until about {tbc("10:30 pm")}</li>
+<li><b>7:30 pm</b> Personal ministry, ending by 10:30 pm at the latest</li>
 </ol>
 <p>9201 N. Rockwell, Oklahoma City, OK 73132<br><span class="muted">West side of Rockwell, between NW Expressway and Britton Rd.</span></p>
 <p>Everyone is welcome, whether you live nearby or travel to come.</p>
