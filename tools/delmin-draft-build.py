@@ -235,22 +235,69 @@ NEARBY = f'''
 '''
 
 # ---------------- ANYWHERE ----------------
+PROBLEMS = [('Bitterness', ['Hate', 'Self-Hate', 'Offense', 'Regret', 'Unforgiveness', 'Unforgiveness of self', 'Hurt', 'Unjustness', 'Injustice', 'Resentment', 'Murder', 'Revenge', 'Retaliation', 'Jealousy', 'Envy', 'Anger at God', 'Blaming God'], None), ('Rejection', ['Fear of Rejection', 'Self-Rejection', 'Rejection in the Womb'], None), ('Rebellion', ['Self-Will', 'Stubbornness', 'Disobedience', 'Anti-Submissiveness', 'False Prophet Spirit'], None), ('Destroyer', ['Withdrawal', 'Separation of Relationships', 'Separation of Marriages', 'Compromise', 'Division', 'Divorce', 'Self-Destruction', 'Self-Mutilation', 'Failure', 'Tragedy', 'Sabotage'], None), ('Death', ['Death Wish', 'Death of Dreams', 'Suicide', 'Murder', 'Abortion', 'By Infirmity', 'By Accident', 'Driving too fast'], None), ('Deception (accepting lies)', ['Self-Deception', 'Delusion', 'Blinding', 'Deceit', 'Denial', 'Memory Recall', 'Lies to the mind'], None), ('Anger', ['Rage', 'Wrath', 'Temper', 'Irrational Anger', 'Self-Anger', 'Violence'], None), ('Deaf & Mute', ['Seizures', 'Convulsions', 'Deafness (physical)', 'Deafness (spiritual)'], None), ('Control', ['“Gatekeeper”', 'Ruler', 'Manipulation', 'Chauvinism', 'Misogyny', 'Possessiveness', 'Domineering'], None), ('Condemnation', ['Guilt', 'Embarrassment', 'Unworthiness', 'Frustration', 'Defeatism', 'Discouragement', 'Accusations', 'Inferiority', 'Insecurity', 'Shame', 'Death Wish', 'Shyness', 'Timidity', 'Intimidation', 'Oversensitive'], None), ('Confusion', ['Forgetfulness', 'Mind Control', 'Mind Blocking', 'Mind Hindering', 'Soul Fragmenting (feeling broken inside)', 'Indifference', 'Double-Mindedness', 'Procrastination', 'Illiteracy'], None), ('Cravings & Addictions', ['Alcohol', 'Nicotine', 'Drugs', 'Medications', 'Gluttony', 'Food', 'Sweets', 'Overeating', 'Fear of Starvation', 'Caffeine', 'Affection', 'Sex', 'Pornography', 'Gambling', 'Vaping', 'Cannabis', 'Pain Pills', 'Opioids', 'Shopping', 'Spending', 'Craving of Things', 'Video Games', 'Social Media', 'Cell Phone Screen Time', 'Idolatry of the above'], None), ('Bondage', ['Hyperactivity (ADHD)', 'Overbearing', 'Talkative', 'Impatience', 'Stealing (Kleptomania)', 'Cheating', 'Physical Pain', 'Victim', 'Blocked Emotion', 'Affection', 'Blocked Completion', 'Frigidity', 'Feeling Cold or Hot for No Reason', 'Workaholic', 'Perfectionism', 'Trauma', 'Birth Trauma', 'Tension Headache', 'Migraine', 'Insomnia', 'Escapism', 'Racism', 'Compulsions', 'Competition', 'Stingy', 'Hoarding', 'Unclean', 'Messiness', 'Bulimia', 'Anorexia', 'Arson', 'Fascination with Fire', 'Fingernail Biting', 'Hair Twisting/Pulling'], None), ('Witchcraft / Occult', ['Ouija', 'Palmistry', 'Halloween', 'Familiar Spirits (contacting the dead)', 'Spirit Guide', 'Divination', 'Sorcery', 'Python (divination that chokes prayer)', 'Horoscopes', 'Astrology', 'Fortune-Telling', 'Tea Leaves', 'Worship of the Dead', 'Charms', 'Crystals', 'Pyramids', 'Tarot Cards', 'Pendulum', 'Voodoo', 'Wicca', 'Santería', 'Medicine Man Spirits', 'Native or Tribal Witchcraft', 'Shamanism', 'Psychic', 'Séance', 'Astral Projection', 'Witchcraft Control', 'Harry Potter', 'Reiki', 'Energy Healing', 'Chakras', 'Manifesting', 'Law of Attraction', 'Psychedelics', 'Ayahuasca', 'Hypnosis', 'Ghost Hunting', 'Spells', 'Satanism', 'Occult Objects in the Home', 'Nephilim (the giants of Genesis 6)'], None), ('Fear', ['of Abandonment', 'of Committing the Unpardonable Sin', 'of Losing Salvation', 'of Death', 'of Driving', 'of the Future', 'of Poverty', 'of Spiders', 'of Insects', 'of Snakes', 'of Man', 'of Woman', 'of People', 'of Animals', 'of Going Outside', 'of Disapproval', 'Not Good Enough', 'of Confrontation', 'of Success', 'of Germs', 'of Sickness', 'of Rejection', 'of Public Speaking', 'of Authority', 'of Doctors', 'of the Dark', 'of Satan', 'of Trusting', 'of Heights', 'of Love', 'of Loneliness', 'of Commitment', 'of Being Hurt', 'of Failure', 'All Phobias', 'Panic Attacks'], 'Other fears'), ('Heaviness / Stress', ['Depression', 'Grief', 'Sorrow', 'Sadness', 'Hopelessness', 'Worry', 'Entrapment', 'Anxiety', 'Nervousness', 'Stress', 'Pressure', 'Tension', 'Crying', 'Heartache', 'Defeatism', 'Unloving', 'Self-Pity', 'Pouting', 'Emotional Pain', 'Despair', 'Disappointment', 'Loneliness'], None), ('Jezebel (seduction and control)', ['Seductive Behavior', 'Witchcraft', 'Manipulation', 'Control'], None), ('Leviathan', ['Twisting Words', 'Pride', 'Blocks the Mind', 'Difficulty Studying the Bible'], None), ('Pride', ['Haughtiness', 'Ego', 'Vanity', 'Intellectualism', 'Leviathan', 'Self-Righteousness', 'Importance', 'Spiritual Pride', 'Arrogance'], None), ('Idolatry (false god)', ['Self (judgment sets itself up as god)', 'People', 'Pets', 'Things', 'Money', 'Hobbies', 'Games', 'Sports', 'Business', 'Work', 'Computer', 'Social Media', 'Phone', 'Screens', 'Lifestyle', 'Entertainment', 'TV', 'Problems', 'Sickness', 'Native American Ways', 'Food', 'Sex', 'Alcohol', 'Drugs', 'Past'], None), ('Lying', ['To Others', 'Exaggeration', 'To Self', 'Demons of the lies', 'Satanic lie program'], None), ('Mental Illness', ['Psychosis (losing touch with reality)', 'Mania', 'Attention-Deficit/Hyperactivity Disorder (ADHD)', 'Intellectual Disability', 'Deaf & Mute', 'Schizophrenia', 'Bipolar (formerly Manic Depression)', 'Borderline Personality Disorder (BPD)', 'Post-Traumatic Stress Disorder (PTSD)', 'Obsessive-Compulsive Disorder (OCD)', 'Paranoia', 'Hallucinations'], None), ('Dissociative Identity (DID, formerly MPD)', ['Alternate Personalities (Alters)', 'Voices'], None), ('Religion / Religious', ['Acupuncture', 'Doctrines', 'Ritualism', 'Tradition', 'False Prophet Spirit', 'Freemasonry', 'Eastern Star', 'Legalism', 'Formalism', 'KKK', 'Martial Arts', 'False Religions', 'Secret Societies', 'Illuminati', 'Yoga and the Kundalini Spirit'], None), ('Self', ['Selfishness', 'Self-Gratification', 'Self-Will', 'Self-Righteousness'], None), ('Stealing (Kleptomania)', ['Cheating'], None), ('Strife', ['Conflict', 'Bickering', 'Political Argument', 'Quarreling', 'Religious Meanness', 'Cruelness', 'Fighting', 'Criticism', 'Mockery', 'Folly', 'Coarse Joking', 'Gossip', 'Faultfinding', 'Judgment', 'Accusation'], None), ('Torment', ['Harassment', 'Nightmares', 'Sleep Paralysis', 'Night Terrors', 'Sensing an Evil Presence', 'Seeing or Hearing Demons'], None), ('Fatigue', ['Tiredness', 'Laziness', 'Insomnia', 'Despondency', 'Weakness', 'Lethargy', 'Sleepiness', 'Slumbering', 'Old and Tired'], None), ('Doubt / Disbelief', ['Skepticism', 'Unbelief'], None), ('False Compassion & Responsibility', ['Co-dependency', 'Need to Rescue / False Burden'], None), ('False Prophecy', ['False Voices'], None), ('Poverty', ['Financial Bondage', 'Blockage', 'Destruction', 'Cash Stealing', 'Lack', 'Stingy', 'Scarcity Mindset'], None), ('Profanity', ['Cursing', 'Blasphemy', 'Taking God’s Name in Vain'], None), ('Infirmity', ['Demon of Symptoms'], 'Any disease, sickness or symptom you have (its medical name, or what you feel)'), ('Perversion', ['Lust', 'Fornication', 'Fantasy', 'Sadistic', 'Lesbianism', 'Homosexuality', 'Masturbation', 'Adultery', 'Abuse of Children', 'Molestation', 'Pedophile', 'Incest', 'Rape', 'Incubus, Succubus (sexual attacks in dreams or at night)', 'Harlotry', 'Exposure', 'Bestiality', 'Pornography'], None)]  # from the Problem Checklist PDF (downloads/src/problem-checklist.html)
+
+def _pl_item(t):
+    # "Familiar Spirits (contacting the dead)" -> name plus a small gloss
+    m = re.match(r'^(.*?)\s*\(([^)]*\s[^)]*)\)$', t)
+    if m and not m.group(2).isupper():
+        return f'{H.escape(m.group(1))} <span class="gl">({H.escape(m.group(2))})</span>'
+    return H.escape(t)
+
+def problem_list():
+    rows = []
+    for g, items, other in PROBLEMS:
+        sub = ''.join(f'<label class="ck"><input type="checkbox" value="{H.escape(t)}"> {_pl_item(t)}</label>' for t in items)
+        if other:
+            sub += f'<label class="ot">{H.escape(other)}</label><input type="text" class="pt">'
+        n = len(items)
+        rows.append(f'<div class="pg"><div class="ph"><label class="ck gh"><input type="checkbox" class="pgc" value="{H.escape(g)}"> {_pl_item(g)}</label>'
+                    f'<button type="button" class="pm" data-n="{n}" aria-expanded="false">{n} more</button></div><div class="pi" hidden>{sub}</div></div>')
+    return ('<fieldset class="plist"><legend>What would you like freedom from?</legend>'
+            '<p class="small">Check any area that is a problem for you now, or that has followed you through life. '
+            'Tap <b>more</b> to see the details under each one and check those too. Check as many as apply. '
+            'This list is kept confidential and helps your minister prepare.</p>'
+            '<p class="pray small"><b>Pray first:</b> Father God, search me and know my heart; try me and know my thoughts. '
+            'Holy Spirit, show me anything in me that is not of You. Help me to be honest and unafraid, and lead me in the everlasting way. '
+            'In Jesus&rsquo; name, amen. <span class="ref">Based on Psalm 139:23-24</span></p>'
+            '<div class="pgrid">' + ''.join(rows) + '</div>'
+            '<label class="ot">Anything else not listed</label><textarea class="pt" data-l="Anything else"></textarea>'
+            '<input type="hidden" name="Problems checked"></fieldset>')
+
+PLIST_JS = """<script>(function(){
+document.addEventListener('click',function(e){var b=e.target.closest('.pm');if(!b)return;var pi=b.closest('.pg').querySelector('.pi');pi.hidden=!pi.hidden;b.setAttribute('aria-expanded',!pi.hidden);b.textContent=pi.hidden?b.dataset.n+' more':'Hide';});
+document.addEventListener('change',function(e){var t=e.target,g=t.closest('.pg');if(!g)return;var c=g.querySelector('.pgc');
+ if(t===c){if(c.checked){var b=g.querySelector('.pm'),pi=g.querySelector('.pi');if(pi.hidden)b.click();}else{g.querySelectorAll('.pi input[type=checkbox]').forEach(function(x){x.checked=false})}}
+ else if(t.checked||(t.type==='text'&&t.value.trim()))c.checked=true;});
+document.addEventListener('submit',function(e){var f=e.target,h=f.querySelector('input[name="Problems checked"]');if(!h)return;var out=[];
+ f.querySelectorAll('.pg').forEach(function(g){var c=g.querySelector('.pgc'),s=[];g.querySelectorAll('.pi input[type=checkbox]:checked').forEach(function(x){s.push(x.value)});
+  var o=g.querySelector('.pi .pt');if(o&&o.value.trim())s.push('other: '+o.value.trim());if(c.checked||s.length)out.push(c.value+(s.length?': '+s.join(', '):''));});
+ var a=f.querySelector('textarea.pt');if(a&&a.value.trim())out.push('Anything else: '+a.value.trim());
+ h.value=out.length?out.join('\\n'):'(none checked)';},true);
+})();</script>"""
+
 ANYWHERE = f'''
 <section class="page-hero"><div class="wrap">
 <h1>Help from anywhere</h1>
-<p>Can't come on a Monday? Prepare at home with this guide, then meet a trained minister by phone, Zoom or FaceTime. It's free. Steps 1 to 4 take about 3 to 4 hours, and you can pause between them.</p>
-<p class="small">Open to people anywhere in the world. Our ministers mainly speak English. If you would prefer another language, tell us which one on the request form, and we will look for a minister who speaks it.</p>
+<p>Can't come on a Monday? Three simple steps at home, then a trained minister meets with you by phone, Zoom or FaceTime. It's free.</p>
+<p class="small">Open to people anywhere in the world. Our ministers mainly speak English. If you would prefer another language, tell us which one on the form, and we will look for a minister who speaks it.</p>
 </div></section>
 <section><div class="wrap">
-<div class="progress"><span>1 Problem list</span><span>2 Watch</span><span>3 Close the doors</span><span>4 Request a minister</span><span>5 Deliverance</span><span>6 Holy Spirit</span></div>
+<div class="progress"><span>1 Learn</span><span>2 Close the doors</span><span>3 Request a minister</span></div>
 
-<div class="stepcard"><div class="n">1</div><div><h3>Circle what applies</h3><p>Print the <a href="{UP}problem-list.pdf">Problem List</a> and circle anything that applies to you. Keep it handy for steps 4 and 5.</p></div></div>
-<div class="stepcard"><div class="n">2</div><div><h3>Learn how freedom and healing work</h3>{yt("SiOOB29SQLI","What is deliverance ministry?","1 hr 10 min")}</div></div>
-<div class="stepcard"><div class="n">3</div><div><h3>Pray the door-closing prayer <span class="pill">required</span></h3><p>Print the <a href="{UP}brown-handout-4-11.pdf">door-closing prayer handout</a> and pray it aloud as the video leads you. The video also covers how to stay free.</p>{yt("9CH5Lc2y9bQ","The door-closing prayer","31 min")}</div></div>
-<div class="stepcard"><div class="n">4</div><div><h3>Request a minister</h3><p>Ask for a free session with a trained minister by phone, Zoom or FaceTime.</p>
-{form("Request a session", NAME_EMAIL + LANG + '<div><label>How would you like to meet?</label><select><option>Phone call</option><option>Zoom</option><option>FaceTime</option></select></div><div><label>I have finished steps 1 to 3</label><select><option>Yes</option><option>Not yet</option></select></div><div><label>Problems you circled (or attach later)</label><textarea></textarea></div>', "Request a session")}</div></div>
-<div class="stepcard"><div class="n">5</div><div><h3>Individual or group deliverance</h3><p>Only after steps 1 to 3. Have your Problem List ready and pause the video whenever you need to.</p>{yt("UJSWP5yNdhY","Individual or group deliverance","1 hr 52 min")}</div></div>
-<div class="stepcard"><div class="n">6</div><div><h3>Be filled with the Holy Spirit</h3><p><a href="{UP}the-Baptism-of-the-Holy-Spirit-1.pdf">Handout</a> for this video.</p>{yt("vFJNON4Ld20","The baptism of the Holy Spirit","10 min")}</div></div>
+<div class="stepcard"><div class="n">1</div><div><h3>Learn what deliverance is</h3><p>Read this short introduction: what deliverance is, why believers still need it, and what to expect.</p>
+<p><a class="btn" href="{IMG}downloads/introduction-to-deliverance.pdf">Introduction to Deliverance</a> <span class="muted small">2 pages · PDF</span> <a class="es" lang="es" href="{IMG}downloads/es/introduccion-a-la-liberacion.pdf">En español</a></p></div></div>
+
+<div class="stepcard"><div class="n">2</div><div><h3>Pray the door-closing prayer <span class="pill">required</span></h3>
+<p>Until you meet with a minister, this prayer is a good place to begin. It doesn't replace one-on-one deliverance, but it lets you start shutting doors the enemy may have used and stand on what Jesus has already done for you while you wait.</p>
+<p>Pray it aloud as the video leads you, using the <a href="{UP}brown-handout-4-11.pdf">door-closing prayer handout</a>. The <a href="{IMG}downloads/door-closing-prayer.pdf">Door-Closing Prayer at a glance</a> outlines each part of the prayer on two pages, so you can see where you are and come back to it. <a class="es" lang="es" href="{IMG}downloads/es/oracion-para-cerrar-puertas.pdf">En español</a></p>
+{yt("9CH5Lc2y9bQ","The door-closing prayer","31 min")}</div></div>
+
+<div class="stepcard"><div class="n">3</div><div><h3>Request a minister</h3><p>Tell us how to reach you and check the areas where you want freedom.</p>
+{form("Request a session", NAME_EMAIL + LANG + '<div><label>How would you like to meet?</label><select><option>Phone call</option><option>Zoom</option><option>FaceTime</option></select></div>' + problem_list(), "Request a session")}
+{PLIST_JS}</div></div>
+
+<div class="stepcard next"><div class="n">&#10003;</div><div><h3>What happens next</h3><p>A minister will reach out to you to schedule your deliverance session by phone, Zoom or FaceTime. Until then, keep praying the door-closing prayer, and rest in this: “Come to me, all you who labor and are heavily burdened, and I will give you rest.” <span class="ref">Matthew 11:28</span></p></div></div>
 </div></section>
 '''
 
@@ -734,6 +781,21 @@ footer .ref{color:#e9dcc6}
  ol.strip{grid-template-columns:1fr;gap:6px} ol.strip li{display:flex;align-items:center;gap:12px;text-align:left;padding:10px 12px} ol.strip li::before{margin:0;flex:none} ol.strip li b{display:inline;margin:0 6px 0 0}
 }
 @media (max-width:560px){body{font-size:17px}.personas,.vgrid,.givegrid,.audios,.row2,.grid2{grid-template-columns:1fr}nav a{font-size:.86rem}.stepcard{grid-template-columns:1fr}.path{grid-template-columns:1fr}.hero .btn.ghost,.cta-band .btn.ghost{margin:10px 0 0 0}}
+.plist{border:0;padding:0;margin:4px 0 12px}
+.plist legend{font-family:var(--sans);font-weight:700;color:var(--navy);font-size:1.05rem;margin-bottom:6px;padding:0}
+.plist .pray{background:#fff;border-left:3px solid var(--gold);padding:8px 12px;border-radius:6px}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px;margin:10px 0 14px;align-items:start}
+.pg{background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 10px}
+.ph{display:flex;align-items:center;gap:8px}
+.form .plist label.ck{display:flex;align-items:flex-start;gap:8px;font-weight:400;color:inherit;margin:0;padding:4px 0;font-size:.93rem;line-height:1.3;cursor:pointer}
+.form .plist label.gh{font-weight:700;color:var(--navy);flex:1}
+.form .plist input[type=checkbox]{width:18px;height:18px;margin:1px 0 0;flex:none;accent-color:var(--navy)}
+.pm{font:600 .78rem var(--sans);background:none;border:1px solid var(--line);border-radius:999px;padding:2px 10px;color:var(--navy);cursor:pointer;white-space:nowrap}
+.pi{border-top:1px solid var(--line);margin-top:6px;padding:4px 0 2px 26px}
+.pi .gl,.plist .gh .gl{font-weight:400;color:#6b6157;font-size:.85em}
+.form .plist label.ot{font-size:.85rem;margin-top:8px}
+.form .plist .pi input.pt{margin-bottom:6px}
+.stepcard.next .n{background:var(--gold);color:var(--navy)}
 '''
 
 if COMBINED:
