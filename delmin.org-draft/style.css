@@ -133,3 +133,18 @@ footer .ref{color:#e9dcc6}
  ol.strip{grid-template-columns:1fr;gap:6px} ol.strip li{display:flex;align-items:center;gap:12px;text-align:left;padding:10px 12px} ol.strip li::before{margin:0;flex:none} ol.strip li b{display:inline;margin:0 6px 0 0}
 }
 @media (max-width:560px){body{font-size:17px}.personas,.vgrid,.givegrid,.audios,.row2,.grid2{grid-template-columns:1fr}nav a{font-size:.86rem}.stepcard{grid-template-columns:1fr}.path{grid-template-columns:1fr}.hero .btn.ghost,.cta-band .btn.ghost{margin:10px 0 0 0}}
+.plist{border:0;padding:0;margin:4px 0 12px}
+.plist legend{font-family:var(--sans);font-weight:700;color:var(--navy);font-size:1.05rem;margin-bottom:6px;padding:0}
+.plist .pray{background:#fff;border-left:3px solid var(--gold);padding:8px 12px;border-radius:6px}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px;margin:10px 0 14px;align-items:start}
+.pg{background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 10px}
+.ph{display:flex;align-items:center;gap:8px}
+.form .plist label.ck{display:flex;align-items:flex-start;gap:8px;font-weight:400;color:inherit;margin:0;padding:4px 0;font-size:.93rem;line-height:1.3;cursor:pointer}
+.form .plist label.gh{font-weight:700;color:var(--navy);flex:1}
+.form .plist input[type=checkbox]{width:18px;height:18px;margin:1px 0 0;flex:none;accent-color:var(--navy)}
+.pm{font:600 .78rem var(--sans);background:none;border:1px solid var(--line);border-radius:999px;padding:2px 10px;color:var(--navy);cursor:pointer;white-space:nowrap}
+.pi{border-top:1px solid var(--line);margin-top:6px;padding:4px 0 2px 26px}
+.pi .gl,.plist .gh .gl{font-weight:400;color:#6b6157;font-size:.85em}
+.form .plist label.ot{font-size:.85rem;margin-top:8px}
+.form .plist .pi input.pt{margin-bottom:6px}
+.stepcard.next .n{background:var(--gold);color:var(--navy)}
