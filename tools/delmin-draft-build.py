@@ -294,7 +294,7 @@ ANYWHERE = f'''
 {yt("9CH5Lc2y9bQ","The door-closing prayer","31 min")}</div></div>
 
 <div class="stepcard"><div class="n">3</div><div><h3>Request a minister</h3><p>Tell us how to reach you and check the areas where you want freedom.</p>
-{form("Request a session", NAME_EMAIL + LANG + '<div><label>How would you like to meet?</label><select><option>Phone call</option><option>Zoom</option><option>FaceTime</option></select></div>' + problem_list(), "Request a session")}
+{form("Request a session", NAME_EMAIL + LANG + '<div><label>How would you like to meet?</label><select><option>Phone call</option><option>Zoom</option><option>FaceTime</option></select></div><div><label>What is the main reason you are seeking deliverance ministry?</label><textarea placeholder="In a few words or a few sentences, whatever is on your heart"></textarea></div>' + problem_list(), "Request a session")}
 {PLIST_JS}</div></div>
 
 <div class="stepcard next"><div class="n">&#10003;</div><div><h3>What happens next</h3><p>A minister will reach out to you to schedule your deliverance session by phone, Zoom or FaceTime. Until then, keep praying the door-closing prayer, and rest in this: “Come to me, all you who labor and are heavily burdened, and I will give you rest.” <span class="ref">Matthew 11:28</span></p></div></div>
